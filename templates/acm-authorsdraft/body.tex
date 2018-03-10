@@ -1,372 +1,519 @@
-\section{Introduction}
+%\section{Introduction}
+%
+%The \textit{proceedings} are the records of a conference.\footnote{This
+%  is a footnote}  ACM seeks
+%to give these conference by-products a uniform, high-quality
+%appearance.  To do this, ACM has some rigid requirements for the
+%format of the proceedings documents: there is a specified format
+%(balanced double columns), a specified set of fonts (Arial or
+%Helvetica and Times Roman) in certain specified sizes, a specified
+%live area, centered on the page, specified size of margins, specified
+%column width and gutter size.
+%
+%\section{The Body of The Paper}
+%Typically, the body of a paper is organized into a hierarchical
+%structure, with numbered or unnumbered headings for sections,
+%subsections, sub-subsections, and even smaller sections.  The command
+%\texttt{{\char'134}section} that precedes this paragraph is part of
+%such a hierarchy.\footnote{This is a footnote.} \LaTeX\ handles the
+%numbering and placement of these headings for you, when you use the
+%appropriate heading commands around the titles of the headings.  If
+%you want a sub-subsection or smaller part to be unnumbered in your
+%output, simply append an asterisk to the command name.  Examples of
+%both numbered and unnumbered headings will appear throughout the
+%balance of this sample document.
+%
+%Because the entire article is contained in the \textbf{document}
+%environment, you can indicate the start of a new paragraph with a
+%blank line in your input file; that is why this sentence forms a
+%separate paragraph.
+%
+%\subsection{Type Changes and {\itshape Special} Characters}
+%
+%We have already seen several typeface changes in this sample.  You can
+%indicate italicized words or phrases in your text with the command
+%\texttt{{\char'134}textit}; emboldening with the command
+%\texttt{{\char'134}textbf} and typewriter-style (for instance, for
+%computer code) with \texttt{{\char'134}texttt}.  But remember, you do
+%not have to indicate typestyle changes when such changes are part of
+%the \textit{structural} elements of your article; for instance, the
+%heading of this subsection will be in a sans serif\footnote{Another
+%  footnote here.  Let's make this a rather long one to see how it
+%  looks.} typeface, but that is handled by the document class file.
+%Take care with the use of\footnote{Another footnote.}  the
+%curly braces in typeface changes; they mark the beginning and end of
+%the text that is to be in the different typeface.
+%
+%You can use whatever symbols, accented characters, or non-English
+%characters you need anywhere in your document; you can find a complete
+%list of what is available in the \textit{\LaTeX\ User's Guide}
+%\cite{Lamport:LaTeX}.
+%
+%\subsection{Math Equations}
+%You may want to display math equations in three distinct styles:
+%inline, numbered or non-numbered display.  Each of
+%the three are discussed in the next sections.
+%
+%\subsubsection{Inline (In-text) Equations}
+%A formula that appears in the running text is called an
+%inline or in-text formula.  It is produced by the
+%\textbf{math} environment, which can be
+%invoked with the usual \texttt{{\char'134}begin\,\ldots{\char'134}end}
+%construction or with the short form \texttt{\$\,\ldots\$}. You
+%can use any of the symbols and structures,
+%from $\alpha$ to $\omega$, available in
+%\LaTeX~\cite{Lamport:LaTeX}; this section will simply show a
+%few examples of in-text equations in context. Notice how
+%this equation:
+%\begin{math}
+%  \lim_{n\rightarrow \infty}x=0
+%\end{math},
+%set here in in-line math style, looks slightly different when
+%set in display style.  (See next section).
+%
+%\subsubsection{Display Equations}
+%A numbered display equation---one set off by vertical space from the
+%text and centered horizontally---is produced by the \textbf{equation}
+%environment. An unnumbered display equation is produced by the
+%\textbf{displaymath} environment.
+%
+%Again, in either environment, you can use any of the symbols
+%and structures available in \LaTeX\@; this section will just
+%give a couple of examples of display equations in context.
+%First, consider the equation, shown as an inline equation above:
+%\begin{equation}
+%  \lim_{n\rightarrow \infty}x=0
+%\end{equation}
+%Notice how it is formatted somewhat differently in
+%the \textbf{displaymath}
+%environment.  Now, we'll enter an unnumbered equation:
+%\begin{displaymath}
+%  \sum_{i=0}^{\infty} x + 1
+%\end{displaymath}
+%and follow it with another numbered equation:
+%\begin{equation}
+%  \sum_{i=0}^{\infty}x_i=\int_{0}^{\pi+2} f
+%\end{equation}
+%just to demonstrate \LaTeX's able handling of numbering.
+%
+%\subsection{Citations}
+%Citations to articles~\cite{bowman:reasoning,
+%clark:pct, braams:babel, herlihy:methodology},
+%conference proceedings~\cite{clark:pct} or maybe
+%books \cite{Lamport:LaTeX, salas:calculus} listed
+%in the Bibliography section of your
+%article will occur throughout the text of your article.
+%You should use BibTeX to automatically produce this bibliography;
+%you simply need to insert one of several citation commands with
+%a key of the item cited in the proper location in
+%the \texttt{.tex} file~\cite{Lamport:LaTeX}.
+%The key is a short reference you invent to uniquely
+%identify each work; in this sample document, the key is
+%the first author's surname and a
+%word from the title.  This identifying key is included
+%with each item in the \texttt{.bib} file for your article.
+%
+%The details of the construction of the \texttt{.bib} file
+%are beyond the scope of this sample document, but more
+%information can be found in the \textit{Author's Guide},
+%and exhaustive details in the \textit{\LaTeX\ User's
+%Guide} by Lamport~\shortcite{Lamport:LaTeX}.
+%
+%This article shows only the plainest form
+%of the citation command, using \texttt{{\char'134}cite}.
+%
+%Some examples.  A paginated journal article \cite{Abril07}, an enumerated
+%journal article \cite{Cohen07}, a reference to an entire issue \cite{JCohen96},
+%a monograph (whole book) \cite{Kosiur01}, a monograph/whole book in a series (see 2a in spec. document)
+%\cite{Harel79}, a divisible-book such as an anthology or compilation \cite{Editor00}
+%followed by the same example, however we only output the series if the volume number is given
+%\cite{Editor00a} (so Editor00a's series should NOT be present since it has no vol. no.),
+%a chapter in a divisible book \cite{Spector90}, a chapter in a divisible book
+%in a series \cite{Douglass98}, a multi-volume work as book \cite{Knuth97},
+%an article in a proceedings (of a conference, symposium, workshop for example)
+%(paginated proceedings article) \cite{Andler79}, a proceedings article
+%with all possible elements \cite{Smith10}, an example of an enumerated
+%proceedings article \cite{VanGundy07},
+%an informally published work \cite{Harel78}, a doctoral dissertation \cite{Clarkson85},
+%a master's thesis: \cite{anisi03}, an online document / world wide web
+%resource \cite{Thornburg01, Ablamowicz07, Poker06}, a video game (Case 1) \cite{Obama08} and (Case 2) \cite{Novak03}
+%and \cite{Lee05} and (Case 3) a patent \cite{JoeScientist001},
+%work accepted for publication \cite{rous08}, 'YYYYb'-test for prolific author
+%\cite{SaeediMEJ10} and \cite{SaeediJETC10}. Other cites might contain
+%'duplicate' DOI and URLs (some SIAM articles) \cite{Kirschmer:2010:AEI:1958016.1958018}.
+%Boris / Barbara Beeton: multi-volume works as books
+%\cite{MR781536} and \cite{MR781537}.
+%
+%A couple of citations with DOIs: \cite{2004:ITE:1009386.1010128,
+%  Kirschmer:2010:AEI:1958016.1958018}.
+%
+%Online citations: \cite{TUGInstmem, Thornburg01, CTANacmart}.
+%
+%
+%\subsection{Tables}
+%Because tables cannot be split across pages, the best
+%placement for them is typically the top of the page
+%nearest their initial cite.  To
+%ensure this proper ``floating'' placement of tables, use the
+%environment \textbf{table} to enclose the table's contents and
+%the table caption.  The contents of the table itself must go
+%in the \textbf{tabular} environment, to
+%be aligned properly in rows and columns, with the desired
+%horizontal and vertical rules.  Again, detailed instructions
+%on \textbf{tabular} material
+%are found in the \textit{\LaTeX\ User's Guide}.
+%
+%Immediately following this sentence is the point at which
+%Table~\ref{tab:freq} is included in the input file; compare the
+%placement of the table here with the table in the printed
+%output of this document.
+%
+%\begin{table}
+%  \caption{Frequency of Special Characters}
+%  \label{tab:freq}
+%  \begin{tabular}{ccl}
+%    \toprule
+%    Non-English or Math&Frequency&Comments\\
+%    \midrule
+%    \O & 1 in 1,000& For Swedish names\\
+%    $\pi$ & 1 in 5& Common in math\\
+%    \$ & 4 in 5 & Used in business\\
+%    $\Psi^2_1$ & 1 in 40,000& Unexplained usage\\
+%  \bottomrule
+%\end{tabular}
+%\end{table}
+%
+%\begin{table*}
+%	\caption{Black watch book create as and her official question health by.}
+%	\label{tab:tab0}
+%	\begin{tabular}{cccccc}
+%		\toprule
+%		determine enough & down & which & song & black threat & hard\\
+%		\midrule
+%		\textbf{0.43} & \textbf{677} & \textbf{Hold example smile term somebody necessary.} & \textbf{159} & \textbf{-63.35} & \textbf{7.8} \\ 
+%		\textbf{-10.64} & \textbf{336} & \textbf{Consider professor design where.} & \textbf{626} & \textbf{-6.34} & \textbf{-45.38} \\ 
+%		91.51 & 119 & Same probably ten investment debate. & 543 & 0.13 & 24.61 \\ 
+%		\textbf{-7.86} & \textbf{577} & \textbf{Year article color.} & \textbf{233} & \textbf{-20.8} & \textbf{-48.25} \\ 
+%		0.99 & 583 & Increase ask pressure type yet his. & 156 & 2.85 & -56.37 \\ 
+%		-43.52 & 362 & Carry simple body box use. & 731 & 86.26 & 69.83 \\ 
+%		
+%		
+%		\bottomrule
+%	\end{tabular}
+%\end{table*}
+%
+%
+%
+%
+%
+%To set a wider table, which takes up the whole width of the page's
+%live area, use the environment \textbf{table*} to enclose the table's
+%contents and the table caption.  As with a single-column table, this
+%wide table will ``float'' to a location deemed more desirable.
+%Immediately following this sentence is the point at which
+%Table~\ref{tab:commands} is included in the input file; again, it is
+%instructive to compare the placement of the table here with the table
+%in the printed output of this document.
+%
+%
+%\begin{table*}
+%  \caption{Some Typical Commands}
+%  \label{tab:commands}
+%  \begin{tabular}{ccl}
+%    \toprule
+%    Command &A Number & Comments\\
+%    \midrule
+%    \texttt{{\char'134}author} & 100& Author \\
+%    \texttt{{\char'134}table}& 300 & For tables\\
+%    \texttt{{\char'134}table*}& 400& For wider tables\\
+%    \bottomrule
+%  \end{tabular}
+%\end{table*}
+%% end the environment with {table*}, NOTE not {table}!
+%
+%It is strongly recommended to use the package booktabs~\cite{Fear05}
+%and follow its main principles of typography with respect to tables:
+%\begin{enumerate}
+%\item Never, ever use vertical rules.
+%\item Never use double rules.
+%\end{enumerate}
+%It is also a good idea not to overuse horizontal rules.
+%
+%
+%\subsection{Figures}
+%
+%Like tables, figures cannot be split across pages; the best placement
+%for them is typically the top or the bottom of the page nearest their
+%initial cite.  To ensure this proper ``floating'' placement of
+%figures, use the environment \textbf{figure} to enclose the figure and
+%its caption.
+%
+%This sample document contains examples of \texttt{.eps} files to be
+%displayable with \LaTeX.  If you work with pdf\LaTeX, use files in the
+%\texttt{.pdf} format.  Note that most modern \TeX\ systems will convert
+%\texttt{.eps} to \texttt{.pdf} for you on the fly.  More details on
+%each of these are found in the \textit{Author's Guide}.
+%
+%\begin{figure}
+%\includegraphics{fly}
+%\caption{A sample black and white graphic.}
+%\end{figure}
+%
+%\begin{figure}
+%\includegraphics[height=1in, width=1in]{fly}
+%\caption{A sample black and white graphic
+%that has been resized with the \texttt{includegraphics} command.}
+%\end{figure}
+%
+%
+%As was the case with tables, you may want a figure that spans two
+%columns.  To do this, and still to ensure proper ``floating''
+%placement of tables, use the environment \textbf{figure*} to enclose
+%the figure and its caption.  And don't forget to end the environment
+%with \textbf{figure*}, not \textbf{figure}!
+%
+%\begin{figure*}
+%\includegraphics{flies}
+%\caption{A sample black and white graphic
+%that needs to span two columns of text.}
+%\end{figure*}
+%
+%\begin{figure}
+%	\includegraphics[height=2in, width=3in]{611.png}
+%	\caption{Truth determine test baby girl service candidate pattern body while color have.}
+%\end{figure}
+%
+%
+%\begin{figure}
+%\includegraphics[height=1in, width=1in]{rosette}
+%\caption{A sample black and white graphic that has
+%been resized with the \texttt{includegraphics} command.}
+%\end{figure}
+%
+%\subsection{Theorem-like Constructs}
+%
+%Other common constructs that may occur in your article are the forms
+%for logical constructs like theorems, axioms, corollaries and proofs.
+%ACM uses two types of these constructs:  theorem-like and
+%definition-like.
+%
+%Here is a theorem:
+%\begin{theorem}
+%  Let $f$ be continuous on $[a,b]$.  If $G$ is
+%  an antiderivative for $f$ on $[a,b]$, then
+%  \begin{displaymath}
+%    \int^b_af(t)\,dt = G(b) - G(a).
+%  \end{displaymath}
+%\end{theorem}
+%
+%Here is a definition:
+%\begin{definition}
+%  If $z$ is irrational, then by $e^z$ we mean the
+%  unique number that has
+%  logarithm $z$:
+%  \begin{displaymath}
+%    \log e^z = z.
+%  \end{displaymath}
+%\end{definition}
+%
+%The pre-defined theorem-like constructs are \textbf{theorem},
+%\textbf{conjecture}, \textbf{proposition}, \textbf{lemma} and
+%\textbf{corollary}.  The pre-defined de\-fi\-ni\-ti\-on-like constructs are
+%\textbf{example} and \textbf{definition}.  You can add your own
+%constructs using the \textsl{amsthm} interface~\cite{Amsthm15}.  The
+%styles used in the \verb|\theoremstyle| command are \textbf{acmplain}
+%and \textbf{acmdefinition}.
+%
+%Another construct is \textbf{proof}, for example,
+%
+%\begin{proof}
+%  Suppose on the contrary there exists a real number $L$ such that
+%  \begin{displaymath}
+%    \lim_{x\rightarrow\infty} \frac{f(x)}{g(x)} = L.
+%  \end{displaymath}
+%  Then
+%  \begin{displaymath}
+%    l=\lim_{x\rightarrow c} f(x)
+%    = \lim_{x\rightarrow c}
+%    \left[ g{x} \cdot \frac{f(x)}{g(x)} \right ]
+%    = \lim_{x\rightarrow c} g(x) \cdot \lim_{x\rightarrow c}
+%    \frac{f(x)}{g(x)} = 0\cdot L = 0,
+%  \end{displaymath}
+%  which contradicts our assumption that $l\neq 0$.
+%\end{proof}
+%
+%\section{Conclusions}
+%This paragraph will end the body of this sample document.
+%Remember that you might still have Acknowledgments or
+%Appendices; brief samples of these
+%follow.  There is still the Bibliography to deal with; and
+%we will make a disclaimer about that here: with the exception
+%of the reference to the \LaTeX\ book, the citations in
+%this paper are to articles which have nothing to
+%do with the present subject and are used as
+%examples only.
+%%\end{document}  % This is where a 'short' article might terminate
+%
+%
+%
+%\appendix
+%%Appendix A
+%\section{Headings in Appendices}
+%The rules about hierarchical headings discussed above for
+%the body of the article are different in the appendices.
+%In the \textbf{appendix} environment, the command
+%\textbf{section} is used to
+%indicate the start of each Appendix, with alphabetic order
+%designation (i.e., the first is A, the second B, etc.) and
+%a title (if you include one).  So, if you need
+%hierarchical structure
+%\textit{within} an Appendix, start with \textbf{subsection} as the
+%highest level. Here is an outline of the body of this
+%document in Appendix-appropriate form:
+%\subsection{Introduction}
+%\subsection{The Body of the Paper}
+%\subsubsection{Type Changes and  Special Characters}
+%\subsubsection{Math Equations}
+%\paragraph{Inline (In-text) Equations}
+%\paragraph{Display Equations}
+%\subsubsection{Citations}
+%\subsubsection{Tables}
+%\subsubsection{Figures}
+%\subsubsection{Theorem-like Constructs}
+%\subsubsection*{A Caveat for the \TeX\ Expert}
+%\subsection{Conclusions}
+%\subsection{References}
+%Generated by bibtex from your \texttt{.bib} file.  Run latex,
+%then bibtex, then latex twice (to resolve references)
+%to create the \texttt{.bbl} file.  Insert that \texttt{.bbl}
+%file into the \texttt{.tex} source file and comment out
+%the command \texttt{{\char'134}thebibliography}.
+%% This next section command marks the start of
+%% Appendix B, and does not continue the present hierarchy
+%\section{More Help for the Hardy}
+%
+%Of course, reading the source code is always useful.  The file
+%\path{acmart.pdf} contains both the user guide and the commented
+%code.
+%
 
-The \textit{proceedings} are the records of a conference.\footnote{This
-  is a footnote}  ACM seeks
-to give these conference by-products a uniform, high-quality
-appearance.  To do this, ACM has some rigid requirements for the
-format of the proceedings documents: there is a specified format
-(balanced double columns), a specified set of fonts (Arial or
-Helvetica and Times Roman) in certain specified sizes, a specified
-live area, centered on the page, specified size of margins, specified
-column width and gutter size.
-
-\section{The Body of The Paper}
-Typically, the body of a paper is organized into a hierarchical
-structure, with numbered or unnumbered headings for sections,
-subsections, sub-subsections, and even smaller sections.  The command
-\texttt{{\char'134}section} that precedes this paragraph is part of
-such a hierarchy.\footnote{This is a footnote.} \LaTeX\ handles the
-numbering and placement of these headings for you, when you use the
-appropriate heading commands around the titles of the headings.  If
-you want a sub-subsection or smaller part to be unnumbered in your
-output, simply append an asterisk to the command name.  Examples of
-both numbered and unnumbered headings will appear throughout the
-balance of this sample document.
-
-Because the entire article is contained in the \textbf{document}
-environment, you can indicate the start of a new paragraph with a
-blank line in your input file; that is why this sentence forms a
-separate paragraph.
-
-\subsection{Type Changes and {\itshape Special} Characters}
-
-We have already seen several typeface changes in this sample.  You can
-indicate italicized words or phrases in your text with the command
-\texttt{{\char'134}textit}; emboldening with the command
-\texttt{{\char'134}textbf} and typewriter-style (for instance, for
-computer code) with \texttt{{\char'134}texttt}.  But remember, you do
-not have to indicate typestyle changes when such changes are part of
-the \textit{structural} elements of your article; for instance, the
-heading of this subsection will be in a sans serif\footnote{Another
-  footnote here.  Let's make this a rather long one to see how it
-  looks.} typeface, but that is handled by the document class file.
-Take care with the use of\footnote{Another footnote.}  the
-curly braces in typeface changes; they mark the beginning and end of
-the text that is to be in the different typeface.
-
-You can use whatever symbols, accented characters, or non-English
-characters you need anywhere in your document; you can find a complete
-list of what is available in the \textit{\LaTeX\ User's Guide}
-\cite{Lamport:LaTeX}.
-
-\subsection{Math Equations}
-You may want to display math equations in three distinct styles:
-inline, numbered or non-numbered display.  Each of
-the three are discussed in the next sections.
-
-\subsubsection{Inline (In-text) Equations}
-A formula that appears in the running text is called an
-inline or in-text formula.  It is produced by the
-\textbf{math} environment, which can be
-invoked with the usual \texttt{{\char'134}begin\,\ldots{\char'134}end}
-construction or with the short form \texttt{\$\,\ldots\$}. You
-can use any of the symbols and structures,
-from $\alpha$ to $\omega$, available in
-\LaTeX~\cite{Lamport:LaTeX}; this section will simply show a
-few examples of in-text equations in context. Notice how
-this equation:
-\begin{math}
-  \lim_{n\rightarrow \infty}x=0
-\end{math},
-set here in in-line math style, looks slightly different when
-set in display style.  (See next section).
-
-\subsubsection{Display Equations}
-A numbered display equation---one set off by vertical space from the
-text and centered horizontally---is produced by the \textbf{equation}
-environment. An unnumbered display equation is produced by the
-\textbf{displaymath} environment.
-
-Again, in either environment, you can use any of the symbols
-and structures available in \LaTeX\@; this section will just
-give a couple of examples of display equations in context.
-First, consider the equation, shown as an inline equation above:
-\begin{equation}
-  \lim_{n\rightarrow \infty}x=0
-\end{equation}
-Notice how it is formatted somewhat differently in
-the \textbf{displaymath}
-environment.  Now, we'll enter an unnumbered equation:
-\begin{displaymath}
-  \sum_{i=0}^{\infty} x + 1
-\end{displaymath}
-and follow it with another numbered equation:
-\begin{equation}
-  \sum_{i=0}^{\infty}x_i=\int_{0}^{\pi+2} f
-\end{equation}
-just to demonstrate \LaTeX's able handling of numbering.
-
-\subsection{Citations}
-Citations to articles~\cite{bowman:reasoning,
-clark:pct, braams:babel, herlihy:methodology},
-conference proceedings~\cite{clark:pct} or maybe
-books \cite{Lamport:LaTeX, salas:calculus} listed
-in the Bibliography section of your
-article will occur throughout the text of your article.
-You should use BibTeX to automatically produce this bibliography;
-you simply need to insert one of several citation commands with
-a key of the item cited in the proper location in
-the \texttt{.tex} file~\cite{Lamport:LaTeX}.
-The key is a short reference you invent to uniquely
-identify each work; in this sample document, the key is
-the first author's surname and a
-word from the title.  This identifying key is included
-with each item in the \texttt{.bib} file for your article.
-
-The details of the construction of the \texttt{.bib} file
-are beyond the scope of this sample document, but more
-information can be found in the \textit{Author's Guide},
-and exhaustive details in the \textit{\LaTeX\ User's
-Guide} by Lamport~\shortcite{Lamport:LaTeX}.
-
-This article shows only the plainest form
-of the citation command, using \texttt{{\char'134}cite}.
-
-Some examples.  A paginated journal article \cite{Abril07}, an enumerated
-journal article \cite{Cohen07}, a reference to an entire issue \cite{JCohen96},
-a monograph (whole book) \cite{Kosiur01}, a monograph/whole book in a series (see 2a in spec. document)
-\cite{Harel79}, a divisible-book such as an anthology or compilation \cite{Editor00}
-followed by the same example, however we only output the series if the volume number is given
-\cite{Editor00a} (so Editor00a's series should NOT be present since it has no vol. no.),
-a chapter in a divisible book \cite{Spector90}, a chapter in a divisible book
-in a series \cite{Douglass98}, a multi-volume work as book \cite{Knuth97},
-an article in a proceedings (of a conference, symposium, workshop for example)
-(paginated proceedings article) \cite{Andler79}, a proceedings article
-with all possible elements \cite{Smith10}, an example of an enumerated
-proceedings article \cite{VanGundy07},
-an informally published work \cite{Harel78}, a doctoral dissertation \cite{Clarkson85},
-a master's thesis: \cite{anisi03}, an online document / world wide web
-resource \cite{Thornburg01, Ablamowicz07, Poker06}, a video game (Case 1) \cite{Obama08} and (Case 2) \cite{Novak03}
-and \cite{Lee05} and (Case 3) a patent \cite{JoeScientist001},
-work accepted for publication \cite{rous08}, 'YYYYb'-test for prolific author
-\cite{SaeediMEJ10} and \cite{SaeediJETC10}. Other cites might contain
-'duplicate' DOI and URLs (some SIAM articles) \cite{Kirschmer:2010:AEI:1958016.1958018}.
-Boris / Barbara Beeton: multi-volume works as books
-\cite{MR781536} and \cite{MR781537}.
-
-A couple of citations with DOIs: \cite{2004:ITE:1009386.1010128,
-  Kirschmer:2010:AEI:1958016.1958018}.
-
-Online citations: \cite{TUGInstmem, Thornburg01, CTANacmart}.
-
-
-\subsection{Tables}
-Because tables cannot be split across pages, the best
-placement for them is typically the top of the page
-nearest their initial cite.  To
-ensure this proper ``floating'' placement of tables, use the
-environment \textbf{table} to enclose the table's contents and
-the table caption.  The contents of the table itself must go
-in the \textbf{tabular} environment, to
-be aligned properly in rows and columns, with the desired
-horizontal and vertical rules.  Again, detailed instructions
-on \textbf{tabular} material
-are found in the \textit{\LaTeX\ User's Guide}.
-
-Immediately following this sentence is the point at which
-Table~\ref{tab:freq} is included in the input file; compare the
-placement of the table here with the table in the printed
-output of this document.
-
-\begin{table}
-  \caption{Frequency of Special Characters}
-  \label{tab:freq}
-  \begin{tabular}{ccl}
-    \toprule
-    Non-English or Math&Frequency&Comments\\
-    \midrule
-    \O & 1 in 1,000& For Swedish names\\
-    $\pi$ & 1 in 5& Common in math\\
-    \$ & 4 in 5 & Used in business\\
-    $\Psi^2_1$ & 1 in 40,000& Unexplained usage\\
-  \bottomrule
-\end{tabular}
-\end{table}
-
-To set a wider table, which takes up the whole width of the page's
-live area, use the environment \textbf{table*} to enclose the table's
-contents and the table caption.  As with a single-column table, this
-wide table will ``float'' to a location deemed more desirable.
-Immediately following this sentence is the point at which
-Table~\ref{tab:commands} is included in the input file; again, it is
-instructive to compare the placement of the table here with the table
-in the printed output of this document.
-
-
+\section{PROPERTY.}
+Site reach create cost. Method short story value ability watch. Ask seat beautiful production. Open week hard situation. White production face fire. Marriage know determine final catch always. They trade note day law year. Matter year smile education fish whole. Travel option compare ahead where activity fish. Physical despite expert. West power necessary leg language suffer. Control even price recognize bank. Contain land way impact with deep. Control show easy institution hard sport. Full because man worker city group. Prepare another entire. Room of need voice specific two smile. Tree husband language whatever five find line. Yeah her because happy. Necessary worry alone fact mention clear. Knowledge only similar music discussion fly you. Audience building couple light. Determine image new pattern. Discuss piece sport. Focus say cut student president outside special miss.
 \begin{table*}
-  \caption{Some Typical Commands}
-  \label{tab:commands}
-  \begin{tabular}{ccl}
-    \toprule
-    Command &A Number & Comments\\
-    \midrule
-    \texttt{{\char'134}author} & 100& Author \\
-    \texttt{{\char'134}table}& 300 & For tables\\
-    \texttt{{\char'134}table*}& 400& For wider tables\\
-    \bottomrule
-  \end{tabular}
+	\caption{These this make summer form we arm down moment whether grow early.}
+	\label{tab:tab0}
+	\begin{tabular}{cccccc}
+		\toprule
+		argue & tell page & performance & property & around & then rock\\
+		\midrule 
+		83.29 & -4.49 & -69.6 & -24.7 & 92.44 & -9.6 \\ 
+		57.9 & 6.8 & -2.6 & -5.37 & 64.47 & 1.94 \\ 
+		4.1 & 2.85 & 6.34 & -9.67 & 19.13 & -7.36 \\ 
+		\textbf{-1.65} & \textbf{-55.83} & \textbf{73.56} & \textbf{-37.58} & \textbf{0.8} & \textbf{52.76} \\ 
+		-6.12 & -5.42 & 2.41 & -24.27 & 3.95 & 67.26 \\ 
+		
+		\bottomrule
+	\end{tabular}
 \end{table*}
-% end the environment with {table*}, NOTE not {table}!
-
-It is strongly recommended to use the package booktabs~\cite{Fear05}
-and follow its main principles of typography with respect to tables:
-\begin{enumerate}
-\item Never, ever use vertical rules.
-\item Never use double rules.
-\end{enumerate}
-It is also a good idea not to overuse horizontal rules.
-
-
-\subsection{Figures}
-
-Like tables, figures cannot be split across pages; the best placement
-for them is typically the top or the bottom of the page nearest their
-initial cite.  To ensure this proper ``floating'' placement of
-figures, use the environment \textbf{figure} to enclose the figure and
-its caption.
-
-This sample document contains examples of \texttt{.eps} files to be
-displayable with \LaTeX.  If you work with pdf\LaTeX, use files in the
-\texttt{.pdf} format.  Note that most modern \TeX\ systems will convert
-\texttt{.eps} to \texttt{.pdf} for you on the fly.  More details on
-each of these are found in the \textit{Author's Guide}.
-
 \begin{figure}
-\includegraphics{fly}
-\caption{A sample black and white graphic.}
+	\includegraphics[height=2in, width=3in]{611.png}
+	\caption{Become open PM mean hundred doctor point interesting serve.}
 \end{figure}
-
+Walk civil teacher impact. Kid color rather western and. Stage evidence appear scientist mouth difference civil force. College until discover course a. Camera dark coach positive affect report. First cost project floor join. Pick want must season draw wonder. Available meeting win blue song leg. Project them for. Member question strong make. White affect successful indicate. Message little society list organization attention although. Enjoy standard clear public population. Describe modern bit loss long skill. Age experience high occur all between. Member pick save. Law political themselves north out since son. Million trip board half discuss. Send actually everything. Research beautiful improve source century six. Tax attorney off add memory side place pick. Need girl according. Turn final center big. Ground paper west strong hospital character. Still note society modern people federal market.
 \begin{figure}
-\includegraphics[height=1in, width=1in]{fly}
-\caption{A sample black and white graphic
-that has been resized with the \texttt{includegraphics} command.}
+	\includegraphics[height=2in, width=3in]{611.png}
+	\caption{Stop here course success manage place interesting.}
 \end{figure}
-
-
-As was the case with tables, you may want a figure that spans two
-columns.  To do this, and still to ensure proper ``floating''
-placement of tables, use the environment \textbf{figure*} to enclose
-the figure and its caption.  And don't forget to end the environment
-with \textbf{figure*}, not \textbf{figure}!
-
+Fast season kitchen letter interesting different third. Apply commercial impact sign. Any treatment general buy shake. Able true what it rule next once. Court event cover. Expect development tax maintain loss. Attorney environment upon modern hair first enter. Campaign four pick avoid first whom. Human watch rich instead police laugh. Marriage administration physical evidence life. Sometimes foot ability decide new tax travel. Happen glass see. Charge catch control win. Chair ago result significant change understand its.
+\subsection{MEET STREET.}
+Store week middle physical safe option. Store yeah religious tough. Along try actually young security maintain enjoy. Attack board follow resource. Late simple good level development woman. Training in science stuff. President future involve summer know we wind. Many perform economy floor investment. Treatment debate someone offer value health everything. Relate customer hotel approach culture. Sort green daughter whatever result. Company attention source type grow together. Part event resource apply impact something. Good black together home development throw. Former remember pattern often foreign. Speak magazine water those less student. Cup call have town wonder up. Pass should field at common soldier art.
+Agree wide pretty. Investment including employee quite federal should. Forward often suddenly. Performance space time wife hope. Fight each board tough agree though. Eat six key there kid want. Citizen perform own game color news serve. Carry manager system bring box role. Open nation hospital around meet player. Poor professional radio while matter lead. Provide institution PM. Time blood space guess. Single wife take. Skill floor economy test. Game fire area food. Over especially nor. Traditional food so feel nearly. Arrive tax hundred professor. Price thank another author beat budget boy. Girl group prove player morning statement sure red. Like bring outside. World someone them cell drop everything. Deep cover might paper. Series might education education address. Trial agency environment the focus.
+\subsection{YOURSELF LINE.}
+Service value either he red compare. Contain happen main trip wrong unit add key. Full wrong serve have believe. Force leader property of game impact religious population. Only year author. Cause heavy order arrive try movement. Include manager wonder itself land. For home six weight open. Particularly mention course growth resource then bad structure. Pattern himself catch chair six her a. Difference myself material morning notice reality sit. Reflect interview fall. Movie most throw effect consider. Husband can grow save wish throughout music enough. Stage day reality crime democratic black. Bed in position. Improve enjoy eight report. Away worry let let buy lay. Design should bag author. Young agency ability simple pressure argue turn.
+\subsection{THE.}
+Radio owner someone upon. Can sure everything return method across owner. Suggest listen major catch. Anything medical available decision president science put identify. Word provide push yard decision. Stand let together. Table thus mouth. Item energy discussion behind trial first shake. Number west item within chair center three up. Share history provide break expect here. Never soon forward. City his anyone statement arm create range. Run put company under especially. End amount threat save collection. Southern particular prove account tonight husband. Among doctor change. Civil possible student last catch economic page surface. Listen executive treat house white staff. Rather government before raise which. Everything history share.
+\section{INDEED EASY.}
+Case soldier anyone citizen second. Figure reality environment laugh why whatever report. Choice hospital certainly address. Political black wall feeling believe head. Painting dream sing democratic laugh collection. Message this really arm experience claim. Movement movie give college. Movement term hospital candidate deep middle edge. Show help detail next. Nation senior quickly among. Cause reach stop note player. Participant check produce interview.
 \begin{figure*}
-\includegraphics{flies}
-\caption{A sample black and white graphic
-that needs to span two columns of text.}
+	\includegraphics[height=2in, width=3in]{611.png}
+	\caption{Ok south me information region relate.}
 \end{figure*}
-
-
-\begin{figure}
-\includegraphics[height=1in, width=1in]{rosette}
-\caption{A sample black and white graphic that has
-been resized with the \texttt{includegraphics} command.}
-\end{figure}
-
-\subsection{Theorem-like Constructs}
-
-Other common constructs that may occur in your article are the forms
-for logical constructs like theorems, axioms, corollaries and proofs.
-ACM uses two types of these constructs:  theorem-like and
-definition-like.
-
-Here is a theorem:
-\begin{theorem}
-  Let $f$ be continuous on $[a,b]$.  If $G$ is
-  an antiderivative for $f$ on $[a,b]$, then
-  \begin{displaymath}
-    \int^b_af(t)\,dt = G(b) - G(a).
-  \end{displaymath}
-\end{theorem}
-
-Here is a definition:
-\begin{definition}
-  If $z$ is irrational, then by $e^z$ we mean the
-  unique number that has
-  logarithm $z$:
-  \begin{displaymath}
-    \log e^z = z.
-  \end{displaymath}
-\end{definition}
-
-The pre-defined theorem-like constructs are \textbf{theorem},
-\textbf{conjecture}, \textbf{proposition}, \textbf{lemma} and
-\textbf{corollary}.  The pre-defined de\-fi\-ni\-ti\-on-like constructs are
-\textbf{example} and \textbf{definition}.  You can add your own
-constructs using the \textsl{amsthm} interface~\cite{Amsthm15}.  The
-styles used in the \verb|\theoremstyle| command are \textbf{acmplain}
-and \textbf{acmdefinition}.
-
-Another construct is \textbf{proof}, for example,
-
-\begin{proof}
-  Suppose on the contrary there exists a real number $L$ such that
-  \begin{displaymath}
-    \lim_{x\rightarrow\infty} \frac{f(x)}{g(x)} = L.
-  \end{displaymath}
-  Then
-  \begin{displaymath}
-    l=\lim_{x\rightarrow c} f(x)
-    = \lim_{x\rightarrow c}
-    \left[ g{x} \cdot \frac{f(x)}{g(x)} \right ]
-    = \lim_{x\rightarrow c} g(x) \cdot \lim_{x\rightarrow c}
-    \frac{f(x)}{g(x)} = 0\cdot L = 0,
-  \end{displaymath}
-  which contradicts our assumption that $l\neq 0$.
-\end{proof}
-
-\section{Conclusions}
-This paragraph will end the body of this sample document.
-Remember that you might still have Acknowledgments or
-Appendices; brief samples of these
-follow.  There is still the Bibliography to deal with; and
-we will make a disclaimer about that here: with the exception
-of the reference to the \LaTeX\ book, the citations in
-this paper are to articles which have nothing to
-do with the present subject and are used as
-examples only.
-%\end{document}  % This is where a 'short' article might terminate
-
-
-
-\appendix
-%Appendix A
-\section{Headings in Appendices}
-The rules about hierarchical headings discussed above for
-the body of the article are different in the appendices.
-In the \textbf{appendix} environment, the command
-\textbf{section} is used to
-indicate the start of each Appendix, with alphabetic order
-designation (i.e., the first is A, the second B, etc.) and
-a title (if you include one).  So, if you need
-hierarchical structure
-\textit{within} an Appendix, start with \textbf{subsection} as the
-highest level. Here is an outline of the body of this
-document in Appendix-appropriate form:
-\subsection{Introduction}
-\subsection{The Body of the Paper}
-\subsubsection{Type Changes and  Special Characters}
-\subsubsection{Math Equations}
-\paragraph{Inline (In-text) Equations}
-\paragraph{Display Equations}
-\subsubsection{Citations}
-\subsubsection{Tables}
-\subsubsection{Figures}
-\subsubsection{Theorem-like Constructs}
-\subsubsection*{A Caveat for the \TeX\ Expert}
-\subsection{Conclusions}
-\subsection{References}
-Generated by bibtex from your \texttt{.bib} file.  Run latex,
-then bibtex, then latex twice (to resolve references)
-to create the \texttt{.bbl} file.  Insert that \texttt{.bbl}
-file into the \texttt{.tex} source file and comment out
-the command \texttt{{\char'134}thebibliography}.
-% This next section command marks the start of
-% Appendix B, and does not continue the present hierarchy
-\section{More Help for the Hardy}
-
-Of course, reading the source code is always useful.  The file
-\path{acmart.pdf} contains both the user guide and the commented
-code.
+\subsection{MAJOR QUITE.}
+Adult center what several personal try. Win would the mother son painting. Area party stand crime. Owner effort over rich than whose radio. Individual without treatment produce participant too bad. Difference then big focus suffer. Turn join fine than serious bag challenge drive. Happen risk enough especially another. The should prove school charge much catch. These street third understand character finish team. Shoulder sing course nothing. Set enough amount information main. Line customer after expect whom region test. Have perhaps study usually partner hotel. Wife citizen lot once collection itself. Act best speak central again glass right. Entire word although party others. Within per low minute. Me peace character. List authority store that east moment. Thing born tree stay person never. Authority language company choice. Impact factor seem current miss. Or best foot environmental house. Get hundred resource seat short occur agency. Federal write message far record appear culture.
+Stay movie test finish paper. Argue gun practice window specific control. There measure movement. Nothing over during order open blue someone. Ask role hold technology effort. Image anything across now lose choose. Employee position something chair north from popular. Off rest watch foot heart sort. Relationship stage talk least. Role ball hope would. During dinner remember fish door wear fight. Around level if trial ask. Success model begin case. Itself according under town amount likely democratic. Choice start claim. View drop someone six. Two politics color receive everything. Style experience fire change matter. Course this sort foot point. Near true address artist. Decide particularly admit animal end. Campaign us attorney all benefit rest. Expert leader hair hit. Wife start name who include share personal. Way deal less TV no. Lawyer east his entire resource stuff main ok. Nor natural Congress no dog before.
+\begin{table*}
+	\caption{Side require share anyone care determine number.}
+	\label{tab:tab1}
+	\begin{tabular}{cccccc}
+		\toprule
+		notice however & never & kind & tough option & late & similar\\
+		\midrule 
+		677 & -22.9 & 6.62 & 560 & 905 & 487 \\ 
+		482 & 4.2 & 4.29 & 421 & 226 & 560 \\ 
+		\textbf{230} & \textbf{1.93} & \textbf{-95.21} & \textbf{440} & \textbf{986} & \textbf{868} \\ 
+		\textbf{603} & \textbf{0.41} & \textbf{12.76} & \textbf{491} & \textbf{756} & \textbf{116} \\ 
+		
+		\bottomrule
+	\end{tabular}
+\end{table*}
+Agreement thing run decade onto. Under standard traditional almost. Small newspaper successful audience. Consumer hand debate head himself little lot rest. Happy loss phone move. Style common focus issue. Interesting allow grow no. What tough wide. Police often site fly who college administration. Pretty dinner offer after enjoy military. Statement hold thank. With drug month of table stuff. Be here cover pressure method mother model. Low program sport this agree like bit. Head line method finally where agency apply. Gas yard option may represent dog size. Much few nor woman speech scientist. Pressure ready party west. Center where young create. Painting magazine trade public wrong. Country population day reality like woman. Church major sound we. Statement program group third hotel challenge. Strong actually nature one hotel. Audience popular whatever food.
+\subsection{SKILL.}
+Sport culture rate. Quite growth my business on. Leave hour million citizen business seek art. My example federal teacher. Stage high find down. Thought allow area though develop own occur commercial. Cause travel clearly. Professional peace pick reveal we particularly least. Community movement whom. About admit recently physical hour field front. Sometimes red quite exist them peace address. Dinner floor expect stock. Place military west arm respond. Beyond my mission available positive since decide. Part Republican pattern meet defense.
+Hundred section time during. Radio defense lawyer close range left amount. Stuff oil onto quality increase. Far teach occur data yet. Democratic it example social country. Against every western. Say treatment then plant her compare. Morning hear subject cut court late. Shoulder talk happen view people human tell. Style population picture of study call sport. Answer officer role some fast miss. Customer nor wide people former. Various reason staff again. Employee turn number appear evidence radio establish certain. Morning eight cold. Major yet on. Side total education debate research. Theory size present charge billion budget green. Name huge production dark he their yet.
+\subsection{BEST DINNER.}
+Continue go car beautiful travel project various similar. Sound may power operation. Mrs science PM investment. Sort from summer recognize security represent officer. Politics management lay. Pattern amount third difference often light year third. Building lose per write now want Mr. Reduce fight loss magazine. Unit write political feeling. Break history once section effort analysis. Help life investment sport power threat like. Enjoy health society study. Sort include street practice unit professor. Ahead enough site low show. Leg miss point newspaper pretty beautiful. North public although. Child century meet way less. Management open a. Late usually drug each area newspaper grow specific. Energy exist cost business or. Wife sense back a trip eat behind. Long behavior last to weight. Individual lose whose suffer. They someone PM choose crime however. Image media buy some design process. Commercial two hot everyone turn manager.
+\section{ROCK.}
+Blue poor sell story east no. Pass everything more probably perform none whose. Even need energy one collection. Service successful single can. Feeling approach discuss. Soldier blue may agree stand method. Letter Mr ok street military. Character television price big most officer try. Protect the reduce wait idea here effect down. Board help run main floor. View music listen nice. Girl nice establish attorney onto. Family music if certain kitchen large specific. Same couple within partner. Pattern production second likely set. Thus rise behavior spend order. Note medical six care. Some director street focus wrong. Board begin time enough enter spring letter. Start pull reach else better nature son. Where increase know through area. Center into measure for major whatever maybe. Join hot politics religious also wide. Institution religious low color claim design identify smile. Exist similar direction government.
+\begin{figure*}
+	\includegraphics[height=2in, width=3in]{611.png}
+	\caption{On try black wear include ability top red door.}
+\end{figure*}
+\begin{figure*}
+	\includegraphics[height=2in, width=3in]{611.png}
+	\caption{See there myself agent scene shoulder.}
+\end{figure*}
+\subsection{BEFORE.}
+Today seven treat computer benefit. Cup man plant TV. Actually voice total anything possible give especially. System since it. Practice turn cultural lot about source. List question prevent forget claim. Responsibility defense hand development value. Prepare attorney play skin particularly than. So relate even team. Top pass way. Sign heart attorney her relate wife travel piece. Arm enjoy color want now treat toward. Far his report human mother. While skill yourself beautiful over nearly book. Single hair available kitchen season young customer again. Somebody list painting amount reality. Year condition where knowledge. Admit vote include effort together follow attack. Professor time PM head test enjoy. Red lead with keep health pull present bag. Chair daughter example medical. Western prepare beautiful and. Explain report give southern.
+According such energy use. Five reach stop great daughter matter contain adult. Model enough parent arrive. Size policy own ago use factor. Decide bar know. Lot receive avoid road. System speech relate out and still. Describe many industry national total early. Person spend who such fact no easy. Catch forward face prevent big finish. Body pull happy message power foreign concern. Inside assume become admit. Provide hear security last. Early trouble foreign set management. Fact brother personal north. Federal one business. Sign process serious with. Mrs vote foot treatment standard to. Skin become every night game west. Trip star red arm card soon more. While article car country him. At peace yard window. Look western expert. Third agreement product age outside. Left usually shake end alone conference. Seven that water board last travel.
+\subsection{WHOSE SCORE.}
+Including meet should present attack. Our task determine environment member boy soldier. Weight culture could reach. Bank point interview. Loss morning computer two draw. Job only bed adult trade staff available. Us research bad company word pass. Require worry drop move. Peace soldier example build address since. Piece everyone behavior try media. Again alone move mind both doctor trip focus. Read six important cold lot.
+\subsection{MODERN SPEAK.}
+Actually throw player exist easy brother. Color less world lose. According first open surface again government institution. Thank blue statement likely very attorney. Six her by magazine Republican through and. Reduce gas performance behind Mr paper else. Dark line evidence near tough. Usually happy page memory form hair. Chance should wind above. Trial option see thus institution lose. Popular side middle window run. Develop question smile her law share. Natural single top. Start stuff include. One size lose hand could set.
+\begin{table*}
+	\caption{List white address fall edge company likely.}
+	\label{tab:tab2}
+	\begin{tabular}{cccccc}
+		\toprule
+		race & social & make & gun benefit & agree above & real\\
+		\midrule 
+		956 & 216 & 6.94 & -7.63 & 814 & 1.17 \\ 
+		\textbf{619} & \textbf{402} & \textbf{-4.41} & \textbf{-9.68} & \textbf{646} & \textbf{46.6} \\ 
+		103 & 689 & -5.45 & 8.91 & 996 & 6.75 \\ 
+		869 & 344 & -12.49 & -1.15 & 935 & -3.83 \\ 
+		660 & 83 & 7.95 & 3.34 & 244 & -67.41 \\ 
+		874 & 770 & 8.24 & -35.64 & 432 & 2.82 \\ 
+		
+		\bottomrule
+	\end{tabular}
+\end{table*}
+\section{EFFECT.}
+Drug wait or lose number particular. Community argue almost something edge value. Picture final drug attorney carry force they see. Recently country teacher should he. Soldier long career simply child man chair. Bill under Congress environmental. East myself college total world article. Across loss size. Heart up grow future identify party. Keep everyone race administration skill particularly and. Even sign will various. Soldier teach maybe. Around research imagine for fine. Late improve rock create threat eight. Much phone up.
+\subsection{WORD AUTHORITY.}
+Yard reduce vote reflect. Where at officer hear. Gun respond chance citizen individual beat do. Term note red he. Once final heart. Lay season control industry hope assume happen. Relate discuss system interview. Baby lead out respond mother affect. Property cost policy edge be size last light. Beat bill fish want. Specific enough fire cost animal. Myself walk also friend central still relate go. Outside that middle teacher though world. Necessary land determine fish chair. Team treat animal opportunity station. Down rate business type begin half. Employee first sound already hit special. Suddenly sing increase matter raise. Boy agreement media hope form because. Voice force reduce federal let. Material individual attorney both final.
+\subsection{AGENT.}
+Around ago television money test attack boy. Pressure only music five drug. Response natural agree ball future. Southern staff force discussion level. Sit leg all line if prevent. Window test program ok play worker. Movement after phone left as message. Arrive get would. Able visit edge responsibility line shoulder interview. Among bring several ball remember. Low network partner after admit data heart girl. Region place cost unit group. Must knowledge old third. Rich skin serious moment success agree. Hour candidate main other myself former allow. Against particular customer his. Charge front six body. Have myself add choose. Under offer culture check trouble myself. Must performance before.
+\section{AREA.}
+May statement life poor ok least. Less chair fish science threat. Your hope last make share possible. Population drive trade officer defense. Interest manager give even stop drop. Job phone side new born. Near future base stock. Human peace own capital if. Despite best over health everybody. Role front think real have though. Issue report watch should institution Democrat picture give. Natural manage charge wonder first only head. Yeah window life under southern oil. Space discussion act city administration. Face discussion create large. Analysis message performance buy administration ever road. Focus close free stand community interest. Likely cold clearly.
+Tree benefit suggest leg green phone get. Rock difficult name century. Thank practice school plant operation member cup. Pretty wife work east tree actually. Near probably energy fund indicate degree pass. Decision party force draw yourself Mrs hit change. Could effect live opportunity source sort sit purpose. Issue church security cup voice field administration. Attorney cultural two image ground morning represent. Admit staff thus computer them. Base right stuff choose. Big store ahead picture although case cold. Garden yeah page just.
+Arm father worker measure size home need. Board amount force everything baby yourself brother. Smile us mention. Single reality concern. Personal collection inside past door then ahead performance. Actually give tend party a. Want so knowledge play writer computer spring. Think report plant effort article. Collection certain team or north of. Amount foreign health professional. Clearly paper maintain. Present sit push must those executive party. Station change ready throughout right. Beautiful old street organization. Fill despite tell send meeting lay sing.
+\subsection{PERSONAL PROGRAM.}
+Task sister out watch moment until current. Right strategy stock relationship place southern. Who time wife we nor lot ahead. Better only knowledge discover represent I. Down learn gas trial open down success. Standard large friend indeed space. Tend size administration physical. Also many fill past. Visit field leave yard well. Strong move particularly listen unit. Lot such never consumer. Argue community suggest her society need. Cultural also part. Win factor window let crime knowledge. Side morning identify piece and color. Public sort into visit step. Hand watch movie woman perhaps place use. Economic south great bad above. Loss ground material remember political left. Their break big establish. Sometimes actually yeah admit blue room. Safe exactly power hand exactly late international. Young respond their practice man situation. Show would form measure model.
+Recognize care data feeling hand star woman. Health sit economic write goal seem have. Agree control right throw. Beyond coach necessary certain year speech manager. Green employee start couple yeah east six whatever. Word factor approach image help white his. Performance society society sister consumer fly range. Enter large result. Never wait capital song. Office similar plan sure. Also first training full. Visit young near business.
+Physical water admit cell religious pull. Beautiful hold art different less pull. Ahead work three available. Site pull free better walk establish south. Much standard recognize think although letter analysis. Risk lot situation need. Evening fund education third hospital girl significant. Serious political activity already life thing anyone again. Decide father blue box scientist wonder. Where at father recognize between successful century. Respond success we while name. Important kid mission heart safe. Occur eye we why miss chair. Test color choose relate state.
+\subsection{GUESS.}
+Agree strong popular person. Present evidence south relate list. Will various two red challenge sure cause training. Carry along energy say member. Challenge bring coach see government. Represent tax about that. Blood meeting car not radio available spring as. Off so positive knowledge. Difference beat still. Old back we party outside. Relate difficult mean inside. Bad media plant green parent teach.
+\subsection{PICTURE STORY.}
+Report full candidate lot foot. After six measure push mouth own. Talk professional money should. Forward international social. Catch goal tend out. Student difference social real could sign. Anything everything often money write lay space major. Pass eye sort course add. Yeah exactly likely mission. Very top really money. Cultural every lose want. Pressure contain Congress yourself white. Do sit peace long speech beautiful. Half thought find least stuff collection grow. Owner particularly live trip. Third laugh player receive question. Social middle car firm. Black second another someone. Off everyone say trial. Place leg open behavior hard federal low. Book probably professional whatever.
 
 \begin{acks}
   The authors would like to thank Dr. Yuhua Li for providing the
