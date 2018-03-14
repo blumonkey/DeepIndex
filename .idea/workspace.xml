@@ -2,19 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db15c23a-ec5a-48f9-bd11-0ea9980a5ee2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/acm-authorsdraft/main.pdf" afterPath="$PROJECT_DIR$/templates/acm-authorsdraft/main.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/acm-large/main.pdf" afterPath="$PROJECT_DIR$/templates/acm-large/main.pdf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/acm-authorsdraft/main.synctex.gz" afterPath="$PROJECT_DIR$/templates/acm-authorsdraft/main.synctex.gz" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LaTeXGenerator.py" afterPath="$PROJECT_DIR$/LaTeXGenerator.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/acm-authorsdraft/body.tex" afterPath="$PROJECT_DIR$/templates/acm-authorsdraft/body.tex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/acm-authorsdraft/main.aux" afterPath="$PROJECT_DIR$/templates/acm-authorsdraft/main.aux" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/acm-authorsdraft/main.bbl" afterPath="$PROJECT_DIR$/templates/acm-authorsdraft/main.bbl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/acm-authorsdraft/main.blg" afterPath="$PROJECT_DIR$/templates/acm-authorsdraft/main.blg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/acm-authorsdraft/main.log" afterPath="$PROJECT_DIR$/templates/acm-authorsdraft/main.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/acm-authorsdraft/main.out" afterPath="$PROJECT_DIR$/templates/acm-authorsdraft/main.out" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/acm-authorsdraft/main.tex" afterPath="$PROJECT_DIR$/templates/acm-authorsdraft/main.tex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/acm-large/main.log" afterPath="$PROJECT_DIR$/templates/acm-large/main.log" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,8 +22,8 @@
       <file leaf-file-name="LaTeXGenerator.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/LaTeXGenerator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="176" column="20" lean-forward="false" selection-start-line="176" selection-start-column="20" selection-end-line="176" selection-end-column="20" />
+            <state relative-caret-position="161">
+              <caret line="522" column="35" lean-forward="false" selection-start-line="522" selection-start-column="35" selection-end-line="522" selection-end-column="35" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -39,9 +33,18 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="acm-authorsdraft" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>generate_figure</find>
+      <find>%s</find>
+      <find>make_bod</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -94,7 +97,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -106,8 +108,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -170,10 +176,10 @@
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1857" height="1092" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14792576" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1514649" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6537634" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38817203" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -210,8 +216,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/LaTeXGenerator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="176" column="20" lean-forward="false" selection-start-line="176" selection-start-column="20" selection-end-line="176" selection-end-column="20" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LOL.tex" />
+    <entry file="file://$PROJECT_DIR$/main-tmpcv_zJT.tex.tex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1990">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main-tmpz4nTo8.tex.tex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LaTeXGenerator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="522" column="35" lean-forward="false" selection-start-line="522" selection-start-column="35" selection-end-line="522" selection-end-column="35" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
