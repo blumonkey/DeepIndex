@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db15c23a-ec5a-48f9-bd11-0ea9980a5ee2" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/BBGenerator.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/acm-authorsdraft/main.pdf" afterPath="$PROJECT_DIR$/templates/acm-authorsdraft/main.pdf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/acm-authorsdraft/main.synctex.gz" afterPath="$PROJECT_DIR$/templates/acm-authorsdraft/main.synctex.gz" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -19,14 +20,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LaTeXGenerator.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LaTeXGenerator.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LaTeXGenerator.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="161">
-              <caret line="522" column="35" lean-forward="false" selection-start-line="522" selection-start-column="35" selection-end-line="522" selection-end-column="35" />
+              <caret line="357" column="53" lean-forward="false" selection-start-line="357" selection-start-column="23" selection-end-line="357" selection-end-column="53" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BBGenerator.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/BBGenerator.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="94" column="52" lean-forward="false" selection-start-line="94" selection-start-column="52" selection-end-line="94" selection-end-column="52" />
+              <folding>
+                <element signature="e#43#80#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="log-tmpVKNVPu.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/log-tmpVKNVPu.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="meta-tmpVKNVPu.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/meta-tmpVKNVPu.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-833">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -37,6 +70,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="acm-authorsdraft" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -45,6 +79,13 @@
       <find>generate_figure</find>
       <find>%s</find>
       <find>make_bod</find>
+      <find>LOSS PLAY.</find>
+      <find>metadata['bo</find>
+      <find>metadata['body']</find>
+      <find>section_tag</find>
+      <find>templates</find>
+      <find>images</find>
+      <find>base</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -54,6 +95,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/LaTeXGenerator.py" />
+        <option value="$PROJECT_DIR$/BBGenerator.py" />
       </list>
     </option>
   </component>
@@ -108,8 +150,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -127,7 +169,24 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.LaTeXGenerator">
+  <component name="RunManager" selected="Python.BBGenerator">
+    <configuration name="BBGenerator" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Project" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/BBGenerator.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
     <configuration name="LaTeXGenerator" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -145,9 +204,14 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Python.LaTeXGenerator" />
+      <item index="1" class="java.lang.String" itemvalue="Python.BBGenerator" />
+    </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Python.LaTeXGenerator" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Python.BBGenerator" />
+        <item index="1" class="java.lang.String" itemvalue="Python.LaTeXGenerator" />
       </list>
     </recent_temporary>
   </component>
@@ -175,11 +239,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1857" height="1092" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1514649" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15312327" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38817203" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38817203" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -224,16 +289,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LOL.tex" />
-    <entry file="file://$PROJECT_DIR$/main-tmpcv_zJT.tex.tex">
+    <entry file="file://$PROJECT_DIR$/LaTeXGenerator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1990">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main-tmpz4nTo8.tex.tex">
+    <entry file="file://$PROJECT_DIR$/LOL.tex" />
+    <entry file="file://$PROJECT_DIR$/main-tmpcv_zJT.tex.tex" />
+    <entry file="file://$PROJECT_DIR$/main-tmpz4nTo8.tex.tex" />
+    <entry file="file://$PROJECT_DIR$/.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -241,12 +310,70 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/temppdf.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="1994" lean-forward="false" selection-start-line="2" selection-start-column="1994" selection-end-line="2" selection-end-column="1994" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/meta-tmpli_CvM.tex.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-437">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/meta-tmpEaQEuY.tex.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log-temppdf.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-126">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/meta-tmpVKNVPu.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-833">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log-tmpVKNVPu.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/LaTeXGenerator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
-          <caret line="522" column="35" lean-forward="false" selection-start-line="522" selection-start-column="35" selection-end-line="522" selection-end-column="35" />
+          <caret line="357" column="53" lean-forward="false" selection-start-line="357" selection-start-column="23" selection-end-line="357" selection-end-column="53" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BBGenerator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="94" column="52" lean-forward="false" selection-start-line="94" selection-start-column="52" selection-end-line="94" selection-end-column="52" />
+          <folding>
+            <element signature="e#43#80#0" expanded="true" />
           </folding>
         </state>
       </provider>

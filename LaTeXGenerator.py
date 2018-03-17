@@ -6,6 +6,8 @@ import math
 from jinja2 import Environment, FileSystemLoader
 import tempfile
 import os
+import json
+import argparse
 
 INT_COL = 'int'
 FLOAT_COL = 'float'
@@ -197,10 +199,10 @@ class LaTeXGenerator(object):
             return self.generate_table_dc(num_rows, column_types)
 
     def section_tag(self, title):
-        return "\\section{%s}" % title.upper()
+        return "\\section{%s}" % title.upper(), title.upper()
 
     def subsection_tag(self, title):
-        return "\\subsection{%s}" % title
+        return "\\subsection{%s}" % title, title
 
     # TODO: Add citations, footnotes and table/figure references.
     def format_paragraph(self, paragraph):
@@ -239,10 +241,10 @@ class LaTeXGenerator(object):
 
                 if 'sections' not in metadata.keys():
                     metadata['sections'] = list()
-                section_name = self.section_tag(self.generate_section())
-                metadata['sections'].append(section_name)
+                latex, title = self.section_tag(self.generate_section())
+                metadata['sections'].append(title)
 
-                document.append(section_name)
+                document.append(latex)
                 document.append(self.format_paragraph(self.generate_paragraph()))
                 section_count += 1
                 subsection_count = 0
@@ -286,11 +288,11 @@ class LaTeXGenerator(object):
                         continue
                     else:
                         stack.append(SUBSEC)
-                        subsection_name = self.subsection_tag(self.generate_section())
+                        latex, title = self.subsection_tag(self.generate_section())
 
-                        metadata['sections'].append('sub:'+subsection_name)
+                        metadata['sections'].append(title)
 
-                        document.append(subsection_name)
+                        document.append(latex)
                         document.append(self.format_paragraph(self.generate_paragraph()))
                         subsection_count += 1
                         paragraph_count = 1
@@ -338,10 +340,10 @@ class LaTeXGenerator(object):
                     else:
                         stack.pop()
                         stack.append(SUBSEC)
-                        subsection_name = self.subsection_tag(self.generate_section())
-                        metadata['sections'].append('sub:'+subsection_name)
+                        latex, title = self.subsection_tag(self.generate_section())
+                        metadata['sections'].append(title)
 
-                        document.append(subsection_name)
+                        document.append(latex)
                         document.append(self.format_paragraph(self.generate_paragraph()))
                         subsection_count += 1
                         paragraph_count = 1
@@ -356,7 +358,7 @@ class LaTeXGenerator(object):
             doc_name = os.path.basename(tmpfile.name)
             tmpfile.write(document)
 
-        metadata['body'] = doc_name
+        metadata['body'] = doc_name[:-4]
         return doc_name
 
     def generate_acm_info(self):
@@ -523,14 +525,31 @@ class LaTeXGenerator(object):
         filled_tex = template.render(ACM_INFO=acm_info, TITLE=title, AUTHORS=authors, SHORT_AUTHORS_COMMAND=short_authors, ABSTRACT=abstract, KEY_WORDS=keywords, BODY=body, NO_CITES=no_cites)
         print(filled_tex)
 
-        fname = "./templates/acm-authorsdraft/main-%s" % metadata['body']
+        fname = "./templates/acm-authorsdraft/main-%s.tex" % metadata['body']
         with open(fname, "w") as tex_file:
             tex_file.write(filled_tex)
+
+        file_name = './templates/acm-authorsdraft/meta-%s.json' % metadata['body']
+        with open(file_name, 'w') as fp:
+            json.dump(metadata, fp, sort_keys=True, indent=4, separators=(',', ': '))
 
         return metadata
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Generate Latex files by format')
+    parser.add_argument('format', help='Format of the Journal/Conference')
+    parser.add_argument('num', type=int, help='Number of files to generate')
+
+    args = parser.parse_args()
+    print(args)
+    if args.format != 'acm-authorsdraft':
+        print('Not implemented')
+    numDocs = args.num
+
     myObj = LaTeXGenerator()
-    metadata = myObj.generate_acm_authorsdraft()
-    print(metadata)
+    for _ in range(numDocs):
+        print('Generating...'+str(_))
+        metadata = myObj.generate_acm_authorsdraft()
+        # print(metadata)
+
