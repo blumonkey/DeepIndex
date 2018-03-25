@@ -21,7 +21,25 @@ TAB_DC = 'tabdc'
 IMG_SC = 'imgsc'
 IMG_DC = 'imgdc'
 
-BibTex_Entries = ["Abril07",  "Cohen07",  "JCohen96",  "Kosiur01",  "Harel79",  "Editor00",  "Editor00a",  "Spector90",  "Douglass98",  "Knuth97",  "Knuth98",  "GM05",  "Smith10",  "VanGundy07",  "VanGundy08",  "VanGundy09",  "Andler79",  "Harel78",  "anisi03",  "Clarkson85",  "Thornburg01",  "Ablamowicz07",  "Poker06",  "Obama08",  "JoeScientist001",  "Novak03",  "Lee05",  "Rous08",  "384253",  "Werneck:2000:FMC:351827.384253",  "1555162",  "Conti:2009:DDS:1555009.1555162",  "Li:2008:PUC:1358628.1358946",  "Hollis:1999:VBD:519964",  "Goossens:1999:LWC:553897",  "897367",  "Buss:1987:VTB:897367",  "Czerwinski:2008:1358628",  "Clarkson:1985:ACP:911891",  "1984:1040142",  "2004:ITE:1009386.1010128",  "Mullender:1993:DS(:302430",  "Petrie:1986:NAD:899644",  "Petrie:1986:NAD:12345",  "book-minimal",  "KA:2001",  "KAGM:2001",  "Kong:2002:IEC:887006.887010",  "Kong:2003:IEC:887006.887011",  "Kong:2004:IEC:123456.887010",  "Kong:2005:IEC:887006.887010",  "Kong:2006:IEC:887006.887010",  "SaeediMEJ10",  "SaeediJETC10",  "Kirschmer:2010:AEI:1958016.1958018",  "Hoare:1972:CIN:1243380.1243382",  "Lee:1978:TQA:800025.1198348",  "Dijkstra:1979:GSC:1241515.1241518",  "Wenzel:1992:TVA:146022.146089",  "Mumford:1987:MES:54905.54911",  "McCracken:1990:SSC:575315",  "MR781537",  "MR781536",  "Adya-01",  "Akyildiz-01",  "Akyildiz-02",  "Bahl-02",  "CROSSBOW",  "Culler-01",  "Harvard-01",  "Natarajan-01",  "Tzamaloukas-01",  "Zhou-06",  "ko94",  "gerndt:89",  "6:1:1",  "7:1:137",  "7:2:183",  "knuth:texbook",  "6:3:380",  "lamport:latex",  "7:3:359",  "test",  "reid:scribe",  "Zhou:2010:MMS:1721695.1721705",  "TUGInstmem",  "CTANacmart",  "bowman:reasoning",  "braams:babel",  "clark:pct",  "herlihy:methodology",  "salas:calculus",  "Fear05",  "Amsthm15"]
+BibTex_Entries = ["Abril07", "Cohen07", "JCohen96", "Kosiur01", "Harel79", "Editor00", "Editor00a",
+                  "Spector90", "Douglass98", "Knuth97", "Knuth98", "GM05", "Smith10", "VanGundy07",
+                  "VanGundy08", "VanGundy09", "Andler79", "Harel78", "anisi03", "Clarkson85", "Thornburg01",
+                  "Ablamowicz07", "Poker06", "Obama08", "JoeScientist001", "Novak03", "Lee05", "Rous08",
+                  "384253", "Werneck:2000:FMC:351827.384253", "1555162", "Conti:2009:DDS:1555009.1555162",
+                  "Li:2008:PUC:1358628.1358946", "Hollis:1999:VBD:519964", "Goossens:1999:LWC:553897", "897367",
+                  "Buss:1987:VTB:897367", "Czerwinski:2008:1358628", "Clarkson:1985:ACP:911891", "1984:1040142",
+                  "2004:ITE:1009386.1010128", "Mullender:1993:DS(:302430", "Petrie:1986:NAD:899644",
+                  "Petrie:1986:NAD:12345", "book-minimal", "KA:2001", "KAGM:2001", "Kong:2002:IEC:887006.887010",
+                  "Kong:2003:IEC:887006.887011", "Kong:2004:IEC:123456.887010", "Kong:2005:IEC:887006.887010",
+                  "Kong:2006:IEC:887006.887010", "SaeediMEJ10", "SaeediJETC10", "Kirschmer:2010:AEI:1958016.1958018",
+                  "Hoare:1972:CIN:1243380.1243382", "Lee:1978:TQA:800025.1198348",
+                  "Dijkstra:1979:GSC:1241515.1241518", "Wenzel:1992:TVA:146022.146089",
+                  "Mumford:1987:MES:54905.54911", "McCracken:1990:SSC:575315", "MR781537", "MR781536", "Adya-01",
+                  "Akyildiz-01", "Akyildiz-02", "Bahl-02", "CROSSBOW", "Culler-01", "Harvard-01", "Natarajan-01",
+                  "Tzamaloukas-01", "Zhou-06", "ko94", "gerndt:89", "6:1:1", "7:1:137", "7:2:183",
+                  "knuth:texbook", "6:3:380", "lamport:latex", "7:3:359", "test", "reid:scribe",
+                  "Zhou:2010:MMS:1721695.1721705", "TUGInstmem", "CTANacmart", "bowman:reasoning",
+                  "braams:babel", "clark:pct", "herlihy:methodology", "salas:calculus", "Fear05", "Amsthm15"]
 
 
 def get_single_columns():
@@ -58,9 +76,7 @@ class LaTeXGenerator(object):
 \\caption{%s}
 \\end{figure*}"""
 
-        self.env = Environment(
-            loader = FileSystemLoader('templates')
-        )
+        self.env = Environment(loader=FileSystemLoader('templates'))
 
     def generate_paragraph(self, num_sentences=20, variable_len=True):
         return self.fake.paragraph(num_sentences, variable_len)
@@ -103,12 +119,12 @@ class LaTeXGenerator(object):
             image_type = random.choice([IMG_SC, IMG_DC])
         return self.__generate_image(image_type)
 
-    def make_bold(self, token):
+    @staticmethod
+    def make_bold(token):
         return '\\textbf{%s}' % token
 
     def generate_rows(self, num_rows, column_types, enable_make_bold=True):
-        if IDX_COL in column_types:
-            row_count = 1
+        row_count = 1
 
         all_rows = ''
 
@@ -149,7 +165,7 @@ class LaTeXGenerator(object):
         headers = ' & '.join(headers)
         return caption, self.table_starter % (table_type, caption, label, column_format, headers) + ' \n ' \
                + self.generate_rows(num_rows, column_types) + '\n' \
-               + self.table_ender % (table_type)
+               + self.table_ender % table_type
 
     def generate_table_sc(self, num_rows, column_types):
         return self.__generate_table('table', num_rows, column_types)
@@ -157,7 +173,8 @@ class LaTeXGenerator(object):
     def generate_table_dc(self, num_rows, column_types):
         return self.__generate_table('table*', num_rows, column_types)
 
-    def get_columns(self):
+    @staticmethod
+    def get_columns():
         return [INT_COL, FLOAT_COL]
 
     def generate_table(self, table_type=None):
@@ -198,20 +215,36 @@ class LaTeXGenerator(object):
             column_types[1:] = copy
             return self.generate_table_dc(num_rows, column_types)
 
-    def section_tag(self, title):
+    @staticmethod
+    def section_tag(title):
         return "\\section{%s}" % title.upper(), title.upper()
 
-    def subsection_tag(self, title):
+    @staticmethod
+    def subsection_tag(title):
         return "\\subsection{%s}" % title, title
+
+    def __random_format(self, word):
+        if random.random() < 0.95:
+            return word
+        choice = self.random_select(2)
+        if choice == 0:
+            return "\\textit{%s}" % word
+        return "\\textbf{%s}" % word
 
     # TODO: Add citations, footnotes and table/figure references.
     def format_paragraph(self, paragraph):
-        return paragraph
+        words = paragraph.split()
+        formatted_words = [self.__random_format(word) for word in words]
+        return ' '.join(formatted_words)
 
     def random_select(self, paths):
         bin_size = 1 / paths
         prob = random.random()
         return math.floor(prob / bin_size)
+
+    def generate_sidebar(self):
+        return "\\begin{sidebar}\n" + self.format_paragraph(
+            self.generate_paragraph(num_sentences=5, variable_len=False)) + "\\end{sidebar}"
 
     def make_body(self, metadata):
         stack = []
@@ -258,6 +291,8 @@ class LaTeXGenerator(object):
                         continue
                     else:
                         document.append(self.format_paragraph(self.generate_paragraph()))
+                        if metadata['format'] == 'acm-sigchi-a' and random.random() > 0.8:
+                            document.append(self.generate_sidebar())
                         paragraph_count += 1
                 elif random_choice == 1:
                     if table_count == MAX_TABLE_COUNT:
@@ -306,6 +341,8 @@ class LaTeXGenerator(object):
                         continue
                     else:
                         document.append(self.format_paragraph(self.generate_paragraph()))
+                        if metadata['format'] == 'acm-sigchi-a' and random.random() > 0.8:
+                            document.append(self.generate_sidebar())
                         paragraph_count += 1
                 elif random_choice == 1:
                     if table_count == MAX_TABLE_COUNT:
@@ -345,6 +382,8 @@ class LaTeXGenerator(object):
 
                         document.append(latex)
                         document.append(self.format_paragraph(self.generate_paragraph()))
+                        if metadata['format'] == 'acm-sigchi-a' and random.random() > 0.8:
+                            document.append(self.generate_sidebar())
                         subsection_count += 1
                         paragraph_count = 1
                 else:
@@ -354,7 +393,7 @@ class LaTeXGenerator(object):
         document = '\n'.join(document)
 
         directory = metadata['format']
-        with tempfile.NamedTemporaryFile(dir='./templates/'+directory, delete=False, suffix='.tex') as tmpfile:
+        with tempfile.NamedTemporaryFile(dir='./templates/' + directory, delete=False, suffix='.tex') as tmpfile:
             doc_name = os.path.basename(tmpfile.name)
             tmpfile.write(document)
 
@@ -370,25 +409,25 @@ class LaTeXGenerator(object):
         yearcr = self.fake.year()
 
         return "\\acmDOI{10.475/123_4}\n" + \
-                "\\acmISBN{%s}\n" % isbn + \
-                "\\acmConference[%s'97]{ACM %s conference}{%s}{%s}\n" %(place, place, date, place_full) + \
-                "\\acmYear{%s}\n" % yearacm + \
-                "\\copyrightyear{%s}\n" % yearcr + \
-                "\\acmPrice{15.00}\n" + \
-                "\\acmSubmissionID{123-A12-B3}\n"
+               "\\acmISBN{%s}\n" % isbn + \
+               "\\acmConference[%s'97]{ACM %s conference}{%s}{%s}\n" % (place, place, date, place_full) + \
+               "\\acmYear{%s}\n" % yearacm + \
+               "\\copyrightyear{%s}\n" % yearcr + \
+               "\\acmPrice{15.00}\n" + \
+               "\\acmSubmissionID{123-A12-B3}\n"
 
     def generate_title_block(self, metadata):
         title = self.generate_title()
         subtitle = self.generate_title(num_words=2)
         titlenote = self.fake.sentence(nb_words=10, variable_nb_words=True)
-        hasSubtitle = ( random.random() >= 0.5 )
+        hasSubtitle = (random.random() >= 0.5)
 
         metadata['title'] = title
         if hasSubtitle:
             metadata['subtitle'] = subtitle
             return "\\title{%s}\n" % title + \
-                "\\titlenote{%s}\n" % titlenote + \
-                "\\subtitle{%s}\n" % subtitle
+                   "\\titlenote{%s}\n" % titlenote + \
+                   "\\subtitle{%s}\n" % subtitle
 
         return "\\title{%s}\n" % title + \
                "\\titlenote{%s}\n" % titlenote
@@ -404,11 +443,11 @@ class LaTeXGenerator(object):
 
         for _ in range(main_authors):
             author_name = self.fake.name()
-            has_author_note = ( random.random() >= 0.5 )
+            has_author_note = (random.random() >= 0.5)
             if has_author_note:
                 author_note = "\\authornote{%s}\n" % self.fake.sentence(nb_words=6, variable_nb_words=True)
             else:
-                author_note='\n'
+                author_note = '\n'
             institute = random.choice(['University of ', 'Institute of ']) + self.fake.city()
             street_address = self.fake.address().split('\n')[0]
             city = self.fake.city()
@@ -425,7 +464,7 @@ class LaTeXGenerator(object):
                 "      \city{%s}\n" % city +
                 "      \state{%s}\n" % state +
                 "      \postcode{%s}\n" % postcode +
-                "    }\n" + \
+                "    }\n" +
                 "\email{%s}\n\n" % email
             )
 
@@ -450,7 +489,7 @@ class LaTeXGenerator(object):
                 "\\affiliation{\n" +
                 "      \institution{%s}\n" % institute +
                 "      \streetaddress{%s}\n" % street_address +
-                "    }\n" + \
+                "    }\n" +
                 "\email{%s}\n\n" % email
             )
 
@@ -471,7 +510,7 @@ class LaTeXGenerator(object):
                 "\\author{%s}\n" % author_name +
                 "\\affiliation{\n" +
                 "      \institution{%s}\n" % institute +
-                "    }\n" + \
+                "    }\n" +
                 "\email{%s}\n\n" % email
             )
 
@@ -485,7 +524,8 @@ class LaTeXGenerator(object):
 
         return '\n'.join(_authors)
 
-    def generate_short_authors_command(self, metadata):
+    @staticmethod
+    def generate_short_authors_command(metadata):
         names = metadata['authors'][0]['name'].split()
         lastname = names[1]
         return '\\renewcommand{\shortauthors}{%s et al.}' % lastname
@@ -501,12 +541,12 @@ class LaTeXGenerator(object):
 
         return ', '.join(keywords)
 
-    def generate_no_cites(self):
+    @staticmethod
+    def generate_no_cites():
         num_cites = random.randint(10, 30)
         cites = random.sample(BibTex_Entries, num_cites)
         cite_tex = ['\\nocite{%s}' % key for key in cites]
         return '\n'.join(cite_tex)
-
 
     def generate_acm_authorsdraft(self):
         metadata = dict()
@@ -522,7 +562,9 @@ class LaTeXGenerator(object):
         body = self.make_body(metadata)
         no_cites = self.generate_no_cites()
 
-        filled_tex = template.render(ACM_INFO=acm_info, TITLE=title, AUTHORS=authors, SHORT_AUTHORS_COMMAND=short_authors, ABSTRACT=abstract, KEY_WORDS=keywords, BODY=body, NO_CITES=no_cites)
+        filled_tex = template.render(ACM_INFO=acm_info, TITLE=title, AUTHORS=authors,
+                                     SHORT_AUTHORS_COMMAND=short_authors, ABSTRACT=abstract, KEY_WORDS=keywords,
+                                     BODY=body, NO_CITES=no_cites)
         print(filled_tex)
 
         fname = "./templates/acm-authorsdraft/main-%s.tex" % metadata['body']
@@ -535,21 +577,281 @@ class LaTeXGenerator(object):
 
         return metadata
 
+    def generate_acm_large(self):
+        metadata = dict()
+        metadata['format'] = 'acm-large'
+        template = self.env.get_template('acm-large/main.tmp.tex')
+
+        acm_info = self.generate_acm_info()
+        title = self.generate_title_block(metadata)
+        authors = self.generate_authors_block(metadata)
+        short_authors = self.generate_short_authors_command(metadata)
+        abstract = self.generate_abstract()
+        keywords = self.generate_keywords()
+        body = self.make_body(metadata)
+        no_cites = self.generate_no_cites()
+
+        filled_tex = template.render(ACM_INFO=acm_info, TITLE=title, AUTHORS=authors,
+                                     SHORT_AUTHORS_COMMAND=short_authors, ABSTRACT=abstract, KEY_WORDS=keywords,
+                                     BODY=body, NO_CITES=no_cites)
+        print(filled_tex)
+
+        fname = "./templates/acm-large/main-%s.tex" % metadata['body']
+        with open(fname, "w") as tex_file:
+            tex_file.write(filled_tex)
+
+        file_name = './templates/acm-large/meta-%s.json' % metadata['body']
+        with open(file_name, 'w') as fp:
+            json.dump(metadata, fp, sort_keys=True, indent=4, separators=(',', ': '))
+
+        return metadata
+
+    def generate_acm_manuscript(self):
+        metadata = dict()
+        metadata['format'] = 'acm-manuscript'
+        template = self.env.get_template('acm-manuscript/main.tmp.tex')
+
+        acm_info = self.generate_acm_info()
+        title = self.generate_title_block(metadata)
+        authors = self.generate_authors_block(metadata)
+        short_authors = self.generate_short_authors_command(metadata)
+        abstract = self.generate_abstract()
+        keywords = self.generate_keywords()
+        body = self.make_body(metadata)
+        no_cites = self.generate_no_cites()
+
+        filled_tex = template.render(ACM_INFO=acm_info, TITLE=title, AUTHORS=authors,
+                                     SHORT_AUTHORS_COMMAND=short_authors, ABSTRACT=abstract, KEY_WORDS=keywords,
+                                     BODY=body, NO_CITES=no_cites)
+        print(filled_tex)
+
+        fname = "./templates/acm-manuscript/main-%s.tex" % metadata['body']
+        with open(fname, "w") as tex_file:
+            tex_file.write(filled_tex)
+
+        file_name = './templates/acm-manuscript/meta-%s.json' % metadata['body']
+        with open(file_name, 'w') as fp:
+            json.dump(metadata, fp, sort_keys=True, indent=4, separators=(',', ': '))
+
+        return metadata
+
+    def generate_acm_sigchi(self):
+        metadata = dict()
+        metadata['format'] = 'acm-sigchi'
+        template = self.env.get_template('acm-sigchi/main.tmp.tex')
+
+        acm_info = self.generate_acm_info()
+        title = self.generate_title_block(metadata)
+        authors = self.generate_authors_block(metadata)
+        short_authors = self.generate_short_authors_command(metadata)
+        abstract = self.generate_abstract()
+        keywords = self.generate_keywords()
+        body = self.make_body(metadata)
+        no_cites = self.generate_no_cites()
+
+        filled_tex = template.render(ACM_INFO=acm_info, TITLE=title, AUTHORS=authors,
+                                     SHORT_AUTHORS_COMMAND=short_authors, ABSTRACT=abstract, KEY_WORDS=keywords,
+                                     BODY=body, NO_CITES=no_cites)
+        print(filled_tex)
+
+        fname = "./templates/acm-sigchi/main-%s.tex" % metadata['body']
+        with open(fname, "w") as tex_file:
+            tex_file.write(filled_tex)
+
+        file_name = './templates/acm-sigchi/meta-%s.json' % metadata['body']
+        with open(file_name, 'w') as fp:
+            json.dump(metadata, fp, sort_keys=True, indent=4, separators=(',', ': '))
+
+        return metadata
+
+    def generate_acm_sigchi_a(self):
+        metadata = dict()
+        metadata['format'] = 'acm-sigchi-a'
+        template = self.env.get_template('acm-sigchi-a/main.tmp.tex')
+
+        acm_info = self.generate_acm_info()
+        title = self.generate_title_block(metadata)
+        authors = self.generate_authors_block(metadata)
+        short_authors = self.generate_short_authors_command(metadata)
+        abstract = self.generate_abstract()
+        keywords = self.generate_keywords()
+        body = self.make_body(metadata)
+        no_cites = self.generate_no_cites()
+
+        filled_tex = template.render(ACM_INFO=acm_info, TITLE=title, AUTHORS=authors,
+                                     SHORT_AUTHORS_COMMAND=short_authors, ABSTRACT=abstract, KEY_WORDS=keywords,
+                                     BODY=body, NO_CITES=no_cites)
+        print(filled_tex)
+
+        fname = "./templates/acm-sigchi-a/main-%s.tex" % metadata['body']
+        with open(fname, "w") as tex_file:
+            tex_file.write(filled_tex)
+
+        file_name = './templates/acm-sigchi-a/meta-%s.json' % metadata['body']
+        with open(file_name, 'w') as fp:
+            json.dump(metadata, fp, sort_keys=True, indent=4, separators=(',', ': '))
+
+        return metadata
+
+    def generate_acm_sigconf(self):
+        metadata = dict()
+        metadata['format'] = 'acm-sigconf'
+        template = self.env.get_template('acm-sigconf/main.tmp.tex')
+
+        acm_info = self.generate_acm_info()
+        title = self.generate_title_block(metadata)
+        authors = self.generate_authors_block(metadata)
+        short_authors = self.generate_short_authors_command(metadata)
+        abstract = self.generate_abstract()
+        keywords = self.generate_keywords()
+        body = self.make_body(metadata)
+        no_cites = self.generate_no_cites()
+
+        filled_tex = template.render(ACM_INFO=acm_info, TITLE=title, AUTHORS=authors,
+                                     SHORT_AUTHORS_COMMAND=short_authors, ABSTRACT=abstract, KEY_WORDS=keywords,
+                                     BODY=body, NO_CITES=no_cites)
+        print(filled_tex)
+
+        fname = "./templates/acm-sigconf/main-%s.tex" % metadata['body']
+        with open(fname, "w") as tex_file:
+            tex_file.write(filled_tex)
+
+        file_name = './templates/acm-sigconf/meta-%s.json' % metadata['body']
+        with open(file_name, 'w') as fp:
+            json.dump(metadata, fp, sort_keys=True, indent=4, separators=(',', ': '))
+
+        return metadata
+
+    def generate_acm_sigplan(self):
+        metadata = dict()
+        metadata['format'] = 'acm-sigplan'
+        template = self.env.get_template('acm-sigplan/main.tmp.tex')
+
+        acm_info = self.generate_acm_info()
+        title = self.generate_title_block(metadata)
+        authors = self.generate_authors_block(metadata)
+        short_authors = self.generate_short_authors_command(metadata)
+        abstract = self.generate_abstract()
+        keywords = self.generate_keywords()
+        body = self.make_body(metadata)
+        no_cites = self.generate_no_cites()
+
+        filled_tex = template.render(ACM_INFO=acm_info, TITLE=title, AUTHORS=authors,
+                                     SHORT_AUTHORS_COMMAND=short_authors, ABSTRACT=abstract, KEY_WORDS=keywords,
+                                     BODY=body, NO_CITES=no_cites)
+        print(filled_tex)
+
+        fname = "./templates/acm-sigplan/main-%s.tex" % metadata['body']
+        with open(fname, "w") as tex_file:
+            tex_file.write(filled_tex)
+
+        file_name = './templates/acm-sigplan/meta-%s.json' % metadata['body']
+        with open(file_name, 'w') as fp:
+            json.dump(metadata, fp, sort_keys=True, indent=4, separators=(',', ': '))
+
+        return metadata
+
+    def generate_acm_small(self):
+        metadata = dict()
+        metadata['format'] = 'acm-small'
+        template = self.env.get_template('acm-small/main.tmp.tex')
+
+        acm_info = self.generate_acm_info()
+        title = self.generate_title_block(metadata)
+        authors = self.generate_authors_block(metadata)
+        short_authors = self.generate_short_authors_command(metadata)
+        abstract = self.generate_abstract()
+        keywords = self.generate_keywords()
+        body = self.make_body(metadata)
+        no_cites = self.generate_no_cites()
+
+        filled_tex = template.render(ACM_INFO=acm_info, TITLE=title, AUTHORS=authors,
+                                     SHORT_AUTHORS_COMMAND=short_authors, ABSTRACT=abstract, KEY_WORDS=keywords,
+                                     BODY=body, NO_CITES=no_cites)
+        print(filled_tex)
+
+        fname = "./templates/acm-small/main-%s.tex" % metadata['body']
+        with open(fname, "w") as tex_file:
+            tex_file.write(filled_tex)
+
+        file_name = './templates/acm-small/meta-%s.json' % metadata['body']
+        with open(file_name, 'w') as fp:
+            json.dump(metadata, fp, sort_keys=True, indent=4, separators=(',', ': '))
+
+        return metadata
+
+    def generate_acm_tog(self):
+        metadata = dict()
+        metadata['format'] = 'acm-tog'
+        template = self.env.get_template('acm-tog/main.tmp.tex')
+
+        acm_info = self.generate_acm_info()
+        title = self.generate_title_block(metadata)
+        authors = self.generate_authors_block(metadata)
+        short_authors = self.generate_short_authors_command(metadata)
+        abstract = self.generate_abstract()
+        keywords = self.generate_keywords()
+        body = self.make_body(metadata)
+        no_cites = self.generate_no_cites()
+
+        filled_tex = template.render(ACM_INFO=acm_info, TITLE=title, AUTHORS=authors,
+                                     SHORT_AUTHORS_COMMAND=short_authors, ABSTRACT=abstract, KEY_WORDS=keywords,
+                                     BODY=body, NO_CITES=no_cites)
+        print(filled_tex)
+
+        fname = "./templates/acm-tog/main-%s.tex" % metadata['body']
+        with open(fname, "w") as tex_file:
+            tex_file.write(filled_tex)
+
+        file_name = './templates/acm-tog/meta-%s.json' % metadata['body']
+        with open(file_name, 'w') as fp:
+            json.dump(metadata, fp, sort_keys=True, indent=4, separators=(',', ': '))
+
+        return metadata
+
 
 if __name__ == '__main__':
+
+    ACM_FORMATS = ['acm-authorsdraft', 'acm-large', 'acm-manuscript', 'acm-sigchi', 'acm-sigchi-a', 'acm-sigconf',
+                   'acm-sigplan', 'acm-small', 'acm-tog']
+
     parser = argparse.ArgumentParser(description='Generate Latex files by format')
-    parser.add_argument('format', help='Format of the Journal/Conference')
-    parser.add_argument('num', type=int, help='Number of files to generate')
+    parser.add_argument('--format', help='Format of the Journal/Conference', nargs='?', const='random',
+                        default='random', type=str)
+    parser.add_argument('--num', type=int, help='Number of files to generate', default=100, nargs='?', const=100)
 
     args = parser.parse_args()
     print(args)
-    if args.format != 'acm-authorsdraft':
+    if args.format not in ACM_FORMATS and args.format != 'random':
         print('Not implemented')
+        exit(1)
+
     numDocs = args.num
+    isRandom = False
+
+    if args.format == 'random':
+        isRandom = True
 
     myObj = LaTeXGenerator()
     for _ in range(numDocs):
-        print('Generating...'+str(_))
-        metadata = myObj.generate_acm_authorsdraft()
-        # print(metadata)
-
+        if isRandom:
+            args.format = random.choice(ACM_FORMATS)
+        print('Generating...' + args.format)
+        if args.format == ACM_FORMATS[0]:
+            metadata = myObj.generate_acm_authorsdraft()
+        if args.format == ACM_FORMATS[1]:
+            metadata = myObj.generate_acm_large()
+        if args.format == ACM_FORMATS[2]:
+            metadata = myObj.generate_acm_manuscript()
+        if args.format == ACM_FORMATS[3]:
+            metadata = myObj.generate_acm_sigchi()
+        if args.format == ACM_FORMATS[4]:
+            metadata = myObj.generate_acm_sigchi_a()
+        if args.format == ACM_FORMATS[5]:
+            metadata = myObj.generate_acm_sigconf()
+        if args.format == ACM_FORMATS[6]:
+            metadata = myObj.generate_acm_sigplan()
+        if args.format == ACM_FORMATS[7]:
+            metadata = myObj.generate_acm_small()
+        if args.format == ACM_FORMATS[8]:
+            metadata = myObj.generate_acm_tog()

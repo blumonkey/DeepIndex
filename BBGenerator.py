@@ -19,6 +19,13 @@ import re
 
 Basic_Sections = ['ABSTRACT', 'CCS CONCEPTS', 'KEYWORDS', 'REFERENCES']
 
+
+def natural_sort(l):
+    convert = lambda text: int(text) if text.isdigit() else text.lower()
+    alphanum_key = lambda key: [convert(c) for c in re.split('-([0-9]+)', key)]
+    return sorted(l, key=alphanum_key)
+
+
 class BBGenerator(object):
 
     def __init__(self):
@@ -46,12 +53,14 @@ class BBGenerator(object):
             h = float(block.find('TEXT')['height'])
             w = float(block.find('TEXT')['width'])
             text_tag = block.find('TEXT')
+            # print(text_tag.text)
             # print(text_tag.next_sibling)
             while True:
                 next_tag = text_tag.next_sibling
                 if next_tag is None:
                     break
                 # print(next_tag.text)
+                # print('================================================================')
                 s = difflib.SequenceMatcher(None, title, text)
                 if sum(n for i,j,n in s.get_matching_blocks()) / float(len(text)) > 0.95:
                     text_tag = next_tag
@@ -92,7 +101,9 @@ class BBGenerator(object):
             subprocess.call(['pdftk', pdf, 'burst', 'output', temp_dir +'/' + pdf_prefix +'-%d.pdf'])
             pdf_pages = glob(temp_dir+'/'+pdf_prefix+'-*.pdf')
 
-            log_file  = open(os.path.dirname(pdf)+'/log-'+pdf_prefix+'.txt', 'a')
+            pdf_pages = natural_sort(pdf_pages)
+
+            log_file  = open(os.path.dirname(pdf)+'/log-'+pdf_prefix+'.txt', 'w')
 
             for pdf_page in pdf_pages:
                 print(pdf_page, file=log_file)
