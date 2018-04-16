@@ -16,6 +16,7 @@ import tempfile
 import argparse
 import os
 import re
+import csv
 
 Basic_Sections = ['ABSTRACT', 'CCS CONCEPTS', 'KEYWORDS', 'REFERENCES']
 
@@ -31,23 +32,32 @@ class BBGenerator(object):
     def __init__(self):
         self.foundTitle = False
 
-    def check_write_MetaData(self, block, text, metadata, fp):
+    def check_write_MetaData(self, block, text, metadata, headers, csv_writer):
         # print('{%s}' % text)
         for sec in Basic_Sections:
             if text == sec:
-                print('Here! ' + sec, file=fp)
+                print('Here! ' + sec)
                 text_tag = block.find('TEXT')
-                print('x: %s' % text_tag['x'], file=fp)
-                print('y: %s' % text_tag['y'], file=fp)
-                print('h: %s' % text_tag['height'], file=fp)
-                print('w: %s' % text_tag['width'], file=fp)
+                print('x: %s' % text_tag['x'])
+                print('y: %s' % text_tag['y'])
+                print('h: %s' % text_tag['height'])
+                print('w: %s' % text_tag['width'])
+
+                current_row = headers[:3]
+                current_row.append('SECTION')
+                current_row.append(float(text_tag['x']))
+                current_row.append(float(text_tag['y']))
+                current_row.append(float(text_tag['x']) + float(text_tag['width']))
+                current_row.append(float(text_tag['y']) + float(text_tag['height']))
+                current_row.append(sec)
+                csv_writer.writerow(current_row)
 
         title = metadata['title']
         if not self.foundTitle and Levenshtein.distance(title, text) / float(len(text)) < 1.0:
             # print(title)
             # print(text)
 
-            print('Here! ' + title, file=fp)
+            print('Here! ' + title)
             x = float(block.find('TEXT')['x'])
             y = float(block.find('TEXT')['y'])
             h = float(block.find('TEXT')['height'])
@@ -69,10 +79,20 @@ class BBGenerator(object):
                 else:
                     break
 
-            print('x: %f' % x, file=fp)
-            print('y: %f' % y, file=fp)
-            print('h: %f' % h, file=fp)
-            print('w: %f' % w, file=fp)
+            print('x: %f' % x)
+            print('y: %f' % y)
+            print('h: %f' % h)
+            print('w: %f' % w)
+
+            current_row = headers[:3]
+            current_row.append('TITLE')
+            current_row.append(x)
+            current_row.append(y)
+            current_row.append(x+w)
+            current_row.append(y+h)
+            current_row.append(title)
+            csv_writer.writerow(current_row)
+
             self.foundTitle = True
 
         sections = metadata['sections']
@@ -83,14 +103,21 @@ class BBGenerator(object):
             # print(text)
             # print(from2)
             if text.startswith(section) or from2.startswith(section):
-                print('Here! ' + section, file=fp)
+                print('Here! ' + section)
                 text_tag = block.find('TEXT')
-                print('x: %s' % text_tag['x'], file=fp)
-                print('y: %s' % text_tag['y'], file=fp)
-                print('h: %s' % text_tag['height'], file=fp)
-                print('w: %s' % text_tag['width'], file=fp)
+                print('x: %s' % text_tag['x'])
+                print('y: %s' % text_tag['y'])
+                print('h: %s' % text_tag['height'])
+                print('w: %s' % text_tag['width'])
 
-
+                current_row = headers[:3]
+                current_row.append('SECTION')
+                current_row.append(float(text_tag['x']))
+                current_row.append(float(text_tag['y']))
+                current_row.append(float(text_tag['x']) + float(text_tag['width']))
+                current_row.append(float(text_tag['y']) + float(text_tag['height']))
+                current_row.append(section)
+                csv_writer.writerow(current_row)
 
     def __get_ground_truth(self, pdf, metadata, base):
         temp_dir = tempfile.mkdtemp(base + '_files')
@@ -103,20 +130,30 @@ class BBGenerator(object):
 
             pdf_pages = natural_sort(pdf_pages)
 
-            log_file  = open(os.path.dirname(pdf)+'/log-'+pdf_prefix+'.txt', 'w')
+            log_file = open('annotations.csv', 'ab')
+            # log_file = open(os.path.dirname(pdf)+'/log-'+pdf_prefix+'.csv', 'wb')
+            csv_writer = csv.writer(log_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
+            # csv_writer.writerow(['filename', 'width', 'height', 'class', 'xmin', 'ymin', 'xmax', 'ymax', 'content'])
+            page_count = 1
             for pdf_page in pdf_pages:
-                print(pdf_page, file=log_file)
+                # print(pdf_page, file=log_file)
+                current_row = ['main-'+metadata['body']+'-'+str(page_count)+'.jpg']
+                page_count += 1
+
                 subprocess.call(['pdf2xml', '-blocks', pdf_page])
                 with open(pdf_page[:-3]+'xml', 'r') as fp:
                     xml_soup = BeautifulSoup(fp, features='xml')
                     pages = xml_soup.findAll('PAGE')
                     for page in pages:
+                        current_row.append(page['width'])
+                        current_row.append(page['height'])
+
                         blocks = page.findAll('BLOCK')
                         for block in blocks:
                             text = block.get_text(separator=' ')
                             # print(text)
-                            self.check_write_MetaData(block, text, metadata, log_file)
+                            self.check_write_MetaData(block, text, metadata, current_row, csv_writer)
                             # print('=============================')
 
             log_file.close()

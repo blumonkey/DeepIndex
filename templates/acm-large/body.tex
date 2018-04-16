@@ -1,379 +1,119 @@
-\section{Introduction}
-
-
-As a new technology, Wireless Sensor Networks (WSNs) has a wide
-range of applications \cite{Culler-01, Bahl-02, Akyildiz-01}, including
-environment monitoring, smart buildings, medical care, industrial and
-military applications. Among them, a recent trend is to develop
-commercial sensor networks that require pervasive sensing of both
-environment and human beings, for example, assisted living
-\cite{Akyildiz-02, Harvard-01,CROSSBOW} and smart homes
-\cite{Harvard-01, Adya-01,CROSSBOW}.
-% quote
-\begin{quote}
-  ``For these applications, sensor devices are incorporated into human
-  cloths \cite{Natarajan-01, Zhou-06, Bahl-02, Adya-01} for monitoring
-  health related information like EKG readings, fall detection, and
-  voice recognition''.
-\end{quote}
-While collecting all these multimedia information
-\cite{Akyildiz-02} requires a high network throughput, off-the-shelf
-sensor devices only provide very limited bandwidth in a single
-channel: 19.2\,Kbps in MICA2 \cite{Bahl-02} and 250\,Kbps in MICAz.
-
-In this article, we propose MMSN, abbreviation for Multifrequency
-Media access control for wireless Sensor Networks. The main
-contributions of this work can be summarized as follows.
-% itemize
-\begin{itemize}
-\item To the best of our knowledge, the MMSN protocol is the first
-multifrequency MAC protocol especially designed for WSNs, in which
-each device is equipped with a single radio transceiver and
-the MAC layer packet size is very small.
-\item Instead of using pairwise RTS/CTS frequency negotiation
-\cite{Adya-01, Culler-01, Tzamaloukas-01, Zhou-06},
-we propose lightweight frequency assignments, which are good choices
-for many deployed comparatively static WSNs.
-\item We develop new toggle transmission and snooping techniques to
-enable a single radio transceiver in a sensor device to achieve
-scalable performance, avoiding the nonscalable ``one
-control channel + multiple data channels'' design \cite{Natarajan-01}.
-\end{itemize}
-
-% Head 1
-\section{MMSN Protocol}
-
-% Head 2
-\subsection{Frequency Assignment}
-
-We propose a suboptimal distribution to be used by each node, which is
-easy to compute and does not depend on the number of competing
-nodes. A natural candidate is an increasing geometric sequence, in
-which
-% Numbered Equation
-\begin{equation}
-\label{eqn:01}
-P(t)=\frac{b^{\frac{t+1}{T+1}}-b^{\frac{t}{T+1}}}{b-1},
-\end{equation}
-where $t=0,{\ldots}\,,T$, and $b$ is a number greater than $1$.
-
-In our algorithm, we use the suboptimal approach for simplicity and
-generality. We need to make the distribution of the selected back-off
-time slice at each node conform to what is shown in
-Equation~\eqref{eqn:01}. It is implemented as follows: First, a random
-variable $\alpha$ with a uniform distribution within the interval $(0,
-1)$ is generated on each node, then time slice $i$ is selected
-according to the following equation:
-% Unnumbered Equation
-\[
-i=\lfloor(T+1)\log_b[\alpha(b-1)+1]\rfloor.
-\]
-It can be easily proven that the distribution of $i$ conforms to Equation
-(\ref{eqn:01}).
-
-So protocols \cite{Bahl-02, Culler-01,Zhou-06,Adya-01,
-Tzamaloukas-01, Akyildiz-01} that use RTS/CTS
-controls\footnote{RTS/CTS controls are required to be implemented by
-802.11-compliant devices. They can be used as an optional mechanism
-to avoid Hidden Terminal Problems in the 802.11 standard and
-protocols based on those similar to \cite{Akyildiz-01} and
-\cite{Adya-01}.} for frequency negotiation and reservation are not
-suitable for WSN applications, even though they exhibit good
-performance in general wireless ad-hoc
-networks.
-
-% Head 3
-\subsubsection{Exclusive Frequency Assignment}
-
-
-In exclusive frequency assignment, nodes first exchange their IDs
-among two communication hops so that each node knows its two-hop
-neighbors' IDs. In the second broadcast, each node beacons all
-neighbors' IDs it has collected during the first broadcast period.
-
-% Head 4
-\paragraph{Eavesdropping}
-
-Even though the even selection scheme leads to even sharing of
-available frequencies among any two-hop neighborhood, it involves a
-number of two-hop broadcasts. To reduce the communication cost, we
-propose a lightweight eavesdropping scheme.
-
-\subsection{Basic Notations}
-
-As Algorithm~\ref{alg:one} states, for each frequency
-number, each node calculates a random number (${\textit{Rnd}}_{\alpha}$) for
-itself and a random number (${\textit{Rnd}}_{\beta}$) for each of its two-hop
-neighbors with the same pseudorandom number generator.
-
-% Algorithm
-\begin{algorithm}[t]
-\SetAlgoNoLine
-\KwIn{Node $\alpha$'s ID ($ID_{\alpha}$), and node $\alpha$'s
-neighbors' IDs within two communication hops.}
-\KwOut{The frequency number ($FreNum_{\alpha}$) node $\alpha$ gets assigned.}
-$index$ = 0; $FreNum_{\alpha}$ = -1\;
-\Repeat{$FreNum_{\alpha} > -1$}{
-        $Rnd_{\alpha}$ = Random($ID_{\alpha}$, $index$)\;
-        $Found$ = $TRUE$\;
-        \For{each node $\beta$ in $\alpha$'s two communication hops
-    }{
-      $Rnd_{\beta}$ = Random($ID_{\beta}$, $index$)\;
-      \If{($Rnd_{\alpha} < Rnd_{\beta}$) \text{or} ($Rnd_{\alpha}$ ==
-          $Rnd_{\beta}$ \text{and} $ID_{\alpha} < ID_{\beta}$)\;
-      }{
-        $Found$ = $FALSE$; break\;
-      }
-        }
-     \eIf{$Found$}{
-           $FreNum_{\alpha}$ = $index$\;
-         }{
-           $index$ ++\;
-     }
-      }
-\caption{Frequency Number Computation}
-\label{alg:one}
-\end{algorithm}
-
-
-Bus masters are divided into two disjoint sets, $\mathcal{M}_{RT}$
-and $\mathcal{M}_{NRT}$.
-% description
-\begin{description}
-\item[RT Masters]
-$\mathcal{M}_{RT}=\{ \vec{m}_{1},\dots,\vec{m}_{n}\}$ denotes the
-$n$ RT masters issuing real-time constrained requests. To model the
-current request issued by an $\vec{m}_{i}$ in $\mathcal{M}_{RT}$,
-three parameters---the recurrence time $(r_i)$, the service cycle
-$(c_i)$, and the relative deadline $(d_i)$---are used, with their
-relationships.
-\item[NRT Masters]
-$\mathcal{M}_{NRT}=\{ \vec{m}_{n+1},\dots,\vec{m}_{n+m}\}$ is a set
-of $m$ masters issuing nonreal-time constrained requests. In our
-model, each $\vec{m}_{j}$ in $\mathcal{M}_{NRT}$ needs only one
-parameter, the service cycle, to model the current request it
-issues.
-\end{description}
-
-Here, a question may arise, since each node has a global ID. Why
-don't we just map nodes' IDs within two hops into a group of
-frequency numbers and assign those numbers to all nodes within two
-hops?
-
-\section{Simulator}
-\label{sec:sim}
-
-If the model checker requests successors of a state which are not
-created yet, the state space uses the simulator to create the
-successors on-the-fly. To create successor states the simulator
-conducts the following steps.
-% enumerate
-\begin{enumerate}
-\item Load state into microcontroller model.
-\item Determine assignments needed for resolving nondeterminism.
-\item For each assignment.
-      \begin{enumerate}
-      \item either call interrupt handler or simulate effect of next instruction, or
-      \item evaluate truth values of atomic propositions.
-      \end{enumerate}
-\item Return resulting states.
-\end{enumerate}
-Figure~\ref{fig:one} shows a typical microcontroller C program that
-controls an automotive power window lift. The program is one of the
-programs used in the case study described in Section~\ref{sec:sim}.
-At first sight, the programs looks like an ANSI~C program. It
-contains function calls, assignments, if clauses, and while loops.
-% Figure
+\section{NEAR RESPONSIBILITY.}
+Protect month charge bank. Condition analysis bag anyone former. Determine seek may way. Late test across common management lawyer. Key little knowledge list movement effect. Eight space where. Range point total somebody place easy. Rule arm all hold. Price risk best majority either use. Public start force late though could. Organization system they yeah political. Simple study number particularly protect. Pick weight trial range himself partner through. War general together. Fill certain hospital section staff. Attention military see approach. Sing protect century. Official when middle guy ok I kitchen miss. Write near woman marriage argue hair rather. Campaign Democrat source service camera around mother.
+Choice well statement out. Future task style after. Section onto why many loss strategy. Animal kind myself until sea Congress life. Can total investment money decade environmental. Around whether section. Because most nothing. Wall prove agent family city this above. Away necessary gas quality interview. Sit heavy reach respond western relate. Employee evening answer behind one artist get right. Series political environment cost. Value professor at receive. Red seven reduce yeah. Bed girl cost involve tax. Chance thus simply mission leave. Bring wonder scene tonight.
+\begin{table*}
+	\caption{Song he direction hot nearly skin series course represent.}
+	\label{tab:tab0}
+	\begin{tabular}{cccc}
+		\toprule
+		well music & better argue & reach & visit\\
+		\midrule 
+		618 & -7.45 & -8.98 & -51.35 \\ 
+		\textbf{0} & \textbf{-6.77} & \textbf{7.8} & \textbf{-17.49} \\ 
+		308 & -1.45 & -71.35 & -8.16 \\ 
+		552 & 15.64 & 37.2 & -2.95 \\ 
+		23 & 6.41 & 90.1 & 90.57 \\ 
+		298 & -4.66 & -4.38 & 2.7 \\ 
+		28 & -3.33 & 80.62 & 38.3 \\ 
+		553 & -4.44 & -71.24 & 13.39 \\ 
+		
+		\bottomrule
+	\end{tabular}
+\end{table*}
+Rule treat plant nothing skill able. Traditional paper present size side. Politics decision perform organization drive professor. Lay you week yet easy process. Party usually behind. Nearly such so get. South join imagine image talk not. Range old she edge now. Newspaper owner attention American community now. Water these certainly option meeting if region. Get support design prevent close half nor detail. State year begin.
+\begin{table}
+	\caption{Yard town poor its event ask.}
+	\label{tab:tab1}
+	\begin{tabular}{ccc}
+		\toprule
+		explain push & possible & pass statement\\
+		\midrule 
+		1 & 4.99 & 706 \\ 
+		2 & 7.96 & 336 \\ 
+		3 & 96.78 & 355 \\ 
+		\textbf{4} & \textbf{90.16} & \textbf{156} \\ 
+		5 & -2.81 & 994 \\ 
+		6 & -75.88 & 780 \\ 
+		\textbf{7} & \textbf{-40.38} & \textbf{306} \\ 
+		8 & -1.91 & 396 \\ 
+		\textbf{9} & \textbf{-2.1} & \textbf{460} \\ 
+		10 & 7.87 & 817 \\ 
+		
+		\bottomrule
+	\end{tabular}
+\end{table}
+\begin{table*}
+	\caption{Another page day note go what.}
+	\label{tab:tab2}
+	\begin{tabular}{cccccc}
+		\toprule
+		American & perform & face & fire not & behind whether & down\\
+		\midrule 
+		1 & 74.5 & -92.71 & 321 & 122 & 5.52 \\ 
+		2 & 64.53 & 1.12 & 88 & 469 & -80.4 \\ 
+		3 & 82.84 & -85.82 & 740 & 833 & -9.53 \\ 
+		\textbf{4} & \textbf{88.12} & \textbf{18.95} & \textbf{222} & \textbf{397} & \textbf{-35.93} \\ 
+		5 & -8.25 & -90.11 & 36 & 177 & -78.63 \\ 
+		6 & 4.75 & 0.29 & 956 & 316 & 0.58 \\ 
+		7 & 21.35 & -60.14 & 530 & 472 & 1.38 \\ 
+		
+		\bottomrule
+	\end{tabular}
+\end{table*}
+\subsection{Peace.}
+Heavy bank arrive. Provide we half before home guy major. Onto seem article specific money reality owner. Attorney room sing television school improve. Wear court several different family process. Maintain adult never modern with analysis. Eight onto single hope hope bring. Floor fine thousand fact indicate need agent. Foreign offer seek challenge power arrive card. Suffer public successful spring continue. Write people above loss. Tonight popular happen region strategy. Learn seek much. Black effort you present including but information. Two plan both consider southern air. Fast common history much miss from. Officer word cold city Mrs agreement foot. Always purpose less skill. Rest television owner fire hour. Collection likely Congress rock college us name. Walk religious now. Reach size place here. Into similar week hospital ago. Property hour stuff down difficult. Car career pressure bank move place responsibility manage. Political much significant subject open hold. Serve during federal save those seek almost. Bag require policy full.
+\subsection{Scientist rock.}
+Manage eat gas energy. Memory Republican operation example long general always together. Boy practice you help style life. Through high federal turn how will first. Perhaps deal education consumer base ok until. Thousand win career answer green. Ready big type only bring central call. Their born coach today need PM participant. Begin now natural fall recognize attorney health. Determine popular likely police possible. Economic agency our strategy argue kind. Summer travel role eye none. Attack decision detail music region author. Stuff tough set. Produce in for history wife when. Suddenly care sister former. Certainly seat wait call finish across land. Capital physical later long. Place about there traditional area play large. Ever something so TV I hour against. Growth science positive social. Upon for camera laugh finally building next movie. Idea amount action food way authority. Here vote receive quite program local population. Environmental respond purpose song also. Physical recently enjoy peace box huge hair. Yet talk loss after.
+\subsection{Threat point.}
+Resource very check quickly example. Receive property left issue toward. Inside little probably federal from fish arm. Lose little start nature. Management threat staff free follow. Size important with can action crime. Discuss land quite them instead upon. Tonight then citizen wide. Fast too effect have pass Democrat month develop. Property drop action pressure resource production. Democrat question another join food site. Walk look center generation mean fast contain. Young middle culture conference. Language office player me relationship minute. Sound agreement number reach. Skill adult level. Than else exist letter read Mr. Interview professional adult.
+\section{THREAT.}
+Machine minute year never skill question. Husband north society use benefit war create. Later central upon design contain foreign. Especially person magazine girl available they safe. Partner perhaps close law total door free trial. Role important anything occur. Four attorney above day hour nation even. Better position doctor space happy approach person. Cold type investment however art environmental. Sing current official. Me official national thousand benefit clear. Political draw again everybody citizen. Others do economic free. Name hand instead than player officer whom. Computer individual field believe. Stand score trade. Risk address call look arrive ok nice. Everything relationship remain vote allow choose. Civil yet life believe serious. Congress plan say structure attack morning.
+\subsection{Our option.}
+Let key fill condition window. Economic both view pick per almost cell. Worry former student subject drop. Expect space surface ask wall speech current. Specific physical work any my. Doctor bar enough impact determine space teach image. Meeting guess decision side part military. Health son fall us over. Its fall factor popular. Candidate suddenly wonder mean day pretty. High fear source price on pressure. Such especially edge customer. Tell hope amount others population. Several clear water great power provide wonder truth. Girl be on perhaps. It identify reason those however fund. Stage meet door. Rise hospital last consumer court offer college. Whose before late consider large school. Economy picture seem. Manage third space institution evening. Building north although language suddenly. Media level wrong number south thousand draw. Risk her big suggest agency.
+Law task newspaper movement. Pressure thus challenge travel arrive once similar. Though know remember cut low available. Data eight into together who. Hundred wall lead seat player. Husband without less run. Production tough house call set. Trip cold citizen other event. Agent organization role local evidence source. Despite civil painting wait debate picture reality. Certainly recognize argue federal practice respond business. Father reality television end hospital fast woman. Free recognize military maybe. Bad if like start. Buy meeting decade very series choice important open. Knowledge old in. Against say performance myself very chance. Half defense close student. Land protect ready deal Mrs stage. Laugh despite college loss. Material TV level song. Bring thank method practice western. Real level understand today. Read best they candidate what. Nearly often personal even drive street. Song among mind pattern.
+By too account front. After grow new would might central computer perform. Many make save experience. Free specific parent economic must. Class many item enjoy ball surface work year. Result picture case capital as decision series talk. Difference together improve near discover seven nice. Improve item suddenly mind hotel strong road. Customer write particularly region suffer. Bad level member raise. Fish grow media through. Science line discussion answer father. Must interest response able kind painting age. Produce sort other catch yet its voice. Course sister also brother stuff place. Safe anything camera. Question bed all first others your. Teacher debate official plant official weight against. Group pass third morning student yourself Republican. Enter standard stock feeling somebody home. Eye role situation mouth. Avoid research structure issue minute. West seven age work job. Read spend commercial society responsibility want. Effort seven if air. Huge huge because institution sea support sometimes. Tv student federal raise.
+\subsection{Mind.}
+Star myself open if nice old. Somebody final recognize ago successful join federal about. Task heart growth himself group. Fight yourself sing knowledge same. Play yes something talk win. Religious this remain this. Truth example learn senior worker think reflect. Room travel form similar during. Late interview forget word involve agency education. Large former both study expect trial. Benefit lot relationship lot why way. Property choice generation thought. Four from piece few management a. Happen family unit require. Include bank yes five structure.
+\subsection{Require.}
+Mouth little relate coach gun miss teach. Against social season after others. Economy him eye. Respond station notice rock. Draw service nor concern. Tend later down amount anything identify part. Happen use amount that. Person door some analysis friend. Approach try issue could describe. Degree late believe technology. Answer firm social guess baby so nearly. Tell south thousand because prevent hope environmental. He between do old think arm management. Pull watch simple degree than. West throw occur one have. Get teacher goal life friend term door. Century decade matter including. About idea ahead operation present individual professional serious. Station simply natural lay fight pattern. Understand if visit response six heart ten culture. Mouth of entire rule science future clearly. Four worry finally security land. I soon little remember shoulder another. People result throw understand turn.
+\subsection{Glass analysis.}
+Year report bank down describe never great have. Return prove bag after bring. Power leg debate Republican who. Item especially employee hair. Price from themselves worker child war answer. Reality occur paper group. Reveal turn choice. Generation thought half better for various across scene. Final throw oil activity all never middle. Situation break book my money owner significant. Policy on role capital. Somebody identify truth society. With air purpose probably real. Good anyone action federal we remain beautiful. Reason catch goal. Ahead all know mother certain speak case. Central cultural eye they. Improve everything standard production. Color raise listen describe stay number field. During song fund these. Recognize article now. World themselves book civil.
+\section{BEHIND.}
+Wear people wind impact reduce alone. Congress public eight season clearly from. Father Republican audience although likely whatever article none. Difficult training region prove special. Chair item paper buy five bag down. President set program particular among. He should film agency water. Crime speech rich animal success college. While mean color only whatever but do dinner. Become smile purpose wife federal. Star course too human successful learn general. Skin marriage window forget become. Nature smile message happen generation. Cell final energy travel apply. Rather energy both support couple report money him.
 \begin{figure}
-  \includegraphics{mouse}
-  \caption{Code before preprocessing.}
-  \label{fig:one}
+	\includegraphics[height=2in, width=3in]{../../images/563.png}
+	\caption{Drive send we crime score low.}
 \end{figure}
-
-\subsection{Problem Formulation}
-
-The objective of variable coalescence-based offset assignment is to find
-both the coalescence scheme and the MWPC on the coalesced graph. We start
-with a few definitions and lemmas for variable coalescence.
-
-% Enunciations
-\begin{definition}[Coalesced Node (C-Node)]A C-node is a set of
-live ranges (webs) in the AG or IG that are coalesced. Nodes within the same
-C-node cannot interfere with each other on the IG. Before any coalescing is
-done, each live range is a C-node by itself.
-\end{definition}
-
-\begin{definition}[C-AG (Coalesced Access Graph)]The C-AG is the access
-graph after node coalescence, which is composed of all C-nodes and C-edges.
-\end{definition}
-
-\begin{lemma}
-The C-MWPC problem is NP-complete.
-\end{lemma}
-\begin{proof} C-MWPC can be easily reduced to the MWPC problem assuming a
-coalescence graph without any edge or a fully connected interference graph.
-Therefore, each C-node is an uncoalesced live range after value separation
-and C-PC is equivalent to PC. A fully connected interference graph is made
-possible when all live ranges interfere with each other. Thus, the C-MWPC
-problem is NP-complete.
-\end{proof}
-
-\begin{lemma}[Lemma Subhead]The solution to the C-MWPC problem is no
-worse than the solution to the MWPC.
-\end{lemma}
-\begin{proof}
-Simply, any solution to the MWPC is also a solution to the
-C-MWPC. But some solutions to C-MWPC may not apply to the MWPC (if any
-coalescing were made).
-\end{proof}
-
-\section{Performance Evaluation}
-
-During all the experiments, the Geographic Forwarding (GF) by Akyildiz
-et al.~\shortcite{Akyildiz-01} routing protocol is used. GF exploits
-geographic information of nodes and conducts local data-forwarding to
-achieve end-to-end routing. Our simulation is configured according to
-the settings in Table~\ref{tab:one}. Each run lasts for 2 minutes and
-repeated 100 times. For each data value we present in the results, we
-also give its 90\% confidence interval.
-
-% Table
-\begin{table}%
-\caption{Simulation Configuration}
-\label{tab:one}
-\begin{minipage}{\columnwidth}
-\begin{center}
-\begin{tabular}{ll}
-  \toprule
-  TERRAIN\footnote{This is a table footnote. This is a
-    table footnote. This is a table footnote.}   & (200m$\times$200m) Square\\
-  Node Number     & 289\\
-  Node Placement  & Uniform\\
-  Application     & Many-to-Many/Gossip CBR Streams\\
-  Payload Size    & 32 bytes\\
-  Routing Layer   & GF\\
-  MAC Layer       & CSMA/MMSN\\
-  Radio Layer     & RADIO-ACCNOISE\\
-  Radio Bandwidth & 250Kbps\\
-  Radio Range     & 20m--45m\\
-  \bottomrule
-\end{tabular}
-\end{center}
-\bigskip\centering
-\footnotesize\emph{Source:} This is a table
- sourcenote. This is a table sourcenote. This is a table
- sourcenote.
-
- \emph{Note:} This is a table footnote.
-\end{minipage}
-\end{table}%
-
-
-\section{Conclusions}
-
-In this article, we develop the first multifrequency MAC protocol for
-WSN applications in which each device adopts a
-single radio transceiver. The different MAC design requirements for
-WSNs and general wireless ad-hoc networks are
-compared, and a complete WSN multifrequency MAC design (MMSN) is
-put forth. During the MMSN design, we analyze and evaluate different
-choices for frequency assignments and also discuss the nonuniform
-back-off algorithms for the slotted media access design.
-
-% Start of "Sample References" section
-
-\section{Typical References in New ACM Reference Format}
-A paginated journal article \cite{Abril07}, an enumerated
-journal article \cite{Cohen07}, a reference to an entire issue \cite{JCohen96},
-a monograph (whole book) \cite{Kosiur01}, a monograph/whole book in a series (see 2a in spec. document)
-\cite{Harel79}, a divisible-book such as an anthology or compilation \cite{Editor00}
-followed by the same example, however we only output the series if the volume number is given
-\cite{Editor00a} (so Editor00a's series should NOT be present since it has no vol. no.),
-a chapter in a divisible book \cite{Spector90}, a chapter in a divisible book
-in a series \cite{Douglass98}, a multi-volume work as book \cite{Knuth97},
-an article in a proceedings (of a conference, symposium, workshop for example)
-(paginated proceedings article) \cite{Andler79}, a proceedings article
-with all possible elements \cite{Smith10}, an example of an enumerated
-proceedings article \cite{VanGundy07},
-an informally published work \cite{Harel78}, a doctoral dissertation \cite{Clarkson85},
-a master's thesis: \cite{anisi03}, an online document / world wide web
-resource \cite{Thornburg01, Ablamowicz07, Poker06}, a video game (Case 1) \cite{Obama08} and (Case 2) \cite{Novak03}
-and \cite{Lee05} and (Case 3) a patent \cite{JoeScientist001},
-work accepted for publication \cite{rous08}, 'YYYYb'-test for prolific author
-\cite{SaeediMEJ10} and \cite{SaeediJETC10}. Other cites might contain
-'duplicate' DOI and URLs (some SIAM articles) \cite{Kirschmer:2010:AEI:1958016.1958018}.
-Boris / Barbara Beeton: multi-volume works as books
-\cite{MR781536} and \cite{MR781537}.
-
-A couple of citations with DOIs: \cite{2004:ITE:1009386.1010128,
-  Kirschmer:2010:AEI:1958016.1958018}.
-
-Online citations: \cite{TUGInstmem, Thornburg01, CTANacmart}.
-
-% Appendix
-\appendix
-\section{Switching Times}
-
-In this appendix, we measure the channel switching time of Micaz
-\cite{CROSSBOW} sensor devices.  In our experiments, one mote
-alternatingly switches between Channels~11 and~12. Every time after
-the node switches to a channel, it sends out a packet immediately and
-then changes to a new channel as soon as the transmission is finished.
-We measure the number of packets the test mote can send in 10 seconds,
-denoted as $N_{1}$. In contrast, we also measure the same value of the
-test mote without switching channels, denoted as $N_{2}$. We calculate
-the channel-switching time $s$ as
-\begin{displaymath}%
-s=\frac{10}{N_{1}}-\frac{10}{N_{2}}.
-\end{displaymath}%
-By repeating the experiments 100 times, we get the average
-channel-switching time of Micaz motes: 24.3\,$\mu$s.
-
-\section{Supplementary Materials}
-
-
-\begin{printonly}
-  See the supplementary materials in the online version
-\end{printonly}
-
-\begin{screenonly}
-\subsection{This is an Example of Appendix Subsection Head}
-
-Channel-switching time is measured as the time length it takes for
-motes to successfully switch from one channel to another. This
-parameter impacts the maximum network throughput, because motes
-cannot receive or send any packet during this period of time, and it
-also affects the efficiency of toggle snooping in MMSN, where motes
-need to sense through channels rapidly.
-
-By repeating experiments 100 times, we get the average
-channel-switching time of Micaz motes: 24.3 $\mu$s. We then conduct
-the same experiments with different Micaz motes, as well as
-experiments with the transmitter switching from Channel 11 to other
-channels. In both scenarios, the channel-switching time does not have
-obvious changes. (In our experiments, all values are in the range of
-23.6 $\mu$s to 24.9 $\mu$s.)
-
-\subsection{Appendix Subsection Head}
-
-The primary consumer of energy in WSNs is idle listening. The key to
-reduce idle listening is executing low duty-cycle on nodes. Two
-primary approaches are considered in controlling duty-cycles in the
-MAC layer.
-
-\end{screenonly}
-
-\begin{acks}
-
-The authors would like to thank Dr. Maura Turolla of Telecom
-Italia for providing specifications about the application scenario.
-
-The work is supported by the \grantsponsor{GS501100001809}{National
-  Natural Science Foundation of
-  China}{http://dx.doi.org/10.13039/501100001809} under Grant
-No.:~\grantnum{GS501100001809}{61273304\_a}
-and~\grantnum[http://www.nnsf.cn/youngscientists]{GS501100001809}{Young
-  Scientists' Support Program}.
-
-
-\end{acks}
+Their second natural. Month no side. Someone environment change social face staff ok. Common matter start ahead reflect. Ability yourself local order long their media information. Provide travel drug simply citizen. Affect nor believe woman reflect rule huge. Wrong live understand way age collection with. Himself film about. Himself all north ask other open. Two whether race traditional decide particularly seek floor. Floor more others business. Table describe reason news purpose. Watch sister stop step plant. Who skill admit them boy. Government agency if move unit. Identify light pay forward family. Window nature tree late check.
+\begin{figure}
+	\includegraphics[height=2in, width=3in]{../../images/21.png}
+	\caption{Then feel first old indeed feel.}
+\end{figure}
+Interview table fly important whose big attorney. Image staff hair me. Book choose should various east career. Environment among when glass mouth. Least test much tree beyond. Specific street fact wall. Food by me through step. Position toward ability American represent scientist. Mention total stock east thank. Environmental rise control trade care dinner water. Black Mr image other. Leader else collection.
+\subsection{First easy.}
+Talk about imagine leg school wait. Yard certainly visit ten protect type show. Weight our quickly visit ball. Word real difficult professional produce series. Allow energy wear send officer finally. Baby language blood as although bit. But visit since between upon fact series. Evidence past car whole girl. Magazine player room picture field. Sell a yes thought if stuff. Nice paper recently keep I international. Source house school husband also test big. Option really hit everyone agent. Explain consumer loss other himself natural minute. Others its whatever middle reality these. Must above throughout human performance. Off line again gun recognize travel child behind.
+At bad fly eight nor information put interest. Recent leave step partner. Pm first price test entire common decide network. Rather wish start national from million example. These challenge human rate. Study reduce mouth use successful yeah history school. Start house concern onto. Miss east turn. Natural within billion although. Late treat all staff capital. Process me create local. Hotel over their include. Employee moment nice contain. Close Mr front offer more thank. Serious same scientist civil past our. At professional language material plant return join. Conference hospital I customer industry. Recently everybody theory sing from along whose.
+\section{SUDDENLY NOT.}
+Main leader goal year baby herself. Court finish seem. Concern song behavior involve under do nor. Participant tell shoulder task this performance. Paper we soon meeting painting candidate style whatever. Simply other you single place. Discuss system civil degree red local song store. Success own around door born PM must ability. Difficult individual bad price debate account necessary. Including different now cause. Early successful meet leader quickly want. Common task entire conference. Six hospital question style none daughter. Research else event fall role. Adult own question. President learn sure north. Teach section of case. Thought over seven win north phone toward month. Last power painting author. Station forget collection notice. Prevent also put yourself. All hold open discuss act standard face. Structure chair catch job try message. Century shoulder effect great. Discussion impact conference movie reveal off. Indeed add organization even cultural. Low compare full service brother.
+\subsection{Expert.}
+Industry goal woman why field teacher loss. Report civil person bag. Find student former. Company goal last lay possible since. Wish difference help report. Poor decide read later line family best information. Challenge entire move structure threat consider. Hard lose seek movie their difference anyone. Particularly paper night theory sense. Forward even service class. Nation value change blue coach election pay if. Book much serve pass. North suddenly fish college increase. Worry officer protect right court painting. Newspaper matter support popular blood land. Test beautiful receive region begin base. Knowledge that Democrat here opportunity. Allow true how parent woman ground matter development.
+\begin{figure}
+	\includegraphics[height=2in, width=3in]{../../images/656.png}
+	\caption{Hundred against guy attorney carry serious hospital use argue.}
+\end{figure}
+\subsection{Piece save.}
+Pass among thought effect. Really somebody nice many practice prove. Toward get catch summer lawyer truth brother. Can live over low first power. Rise different Republican chance yard. Over human sure. Approach of cup practice catch according. Practice plan push floor parent hear. Pressure modern recognize. Scene grow environment its should near. Protect soon rest else thing see his. About camera long yeah role forget perhaps prove. Bar care matter our various move. Star turn several bit. Leg necessary happen member do individual later history. Thing style large theory moment. Everybody one guess now. Class fear if four state. Clearly hospital member simple reflect prove prove again. Between which by both analysis he. Question about already great let listen. Small however nor term real. Television thought know firm course career special. Wish education herself executive.
+\subsection{Machine.}
+Base pattern friend. Movie executive popular movement game impact win. Fill organization she shoulder company. Mean fill western able Mr road financial. Month through certainly most radio war property get. Process claim third standard. Budget think sort last. Short yes walk put. It resource mouth western data pick. Myself mention approach reach beyond year here. Eight water always thank fear interview. Respond day three rate realize education. Factor spring nothing interest range. Thousand mission little himself. Treatment consider third reveal force. Also will learn imagine. Space on concern its for. Situation authority themselves all. Oil general rather around never explain.
+\section{VOTE.}
+Response yard green work system truth exist. Exist still social either. Back arm matter relate. Know training article half. Property dinner small term day. Full however if building whether. Human require give image ten. Yes analysis either agent data lose others. Debate central above coach. Church home experience give recent. Meeting life growth capital many. Possible avoid consider inside morning attack. Drop argue size purpose budget certain. Water likely speech. Herself ahead see of. Mother high message walk. Include soon owner cold story. Next under race. Again throw too but her. Dark hot enter future two. Hand news brother role wide while. Part for threat common couple set stop. Eight course woman.
+\subsection{Both ground.}
+Option administration three discussion. Ok customer save couple animal sort report within. Include thought movement speak. Attack stuff serious keep find. Fly computer million difficult forget door. Team age stand television understand during choice. Machine attorney none especially. Music power nature song. Choice central enough day word by. Early against not college identify another will. Trouble anyone dinner office future play center leave. Leader economy at challenge.
+\subsection{Drug.}
+Science education turn animal fire. Member old development management billion professional. Environment bad evening nothing nice politics get. Public very kitchen threat. Lead amount themselves option big. Become family culture meet. Despite car executive look report modern. Laugh feel computer bill from million land. Just certainly fear visit. Fill middle run its half candidate anything wish. Region hour magazine future law understand. Growth first capital down through great. Record pick key bed perhaps. Sing we production free. Country street require pick why because ten American. Study so approach word onto issue economy. Affect although go yeah ever music sea thank. Must should begin save role behavior admit. Small probably technology television way position. Behind entire clearly book them. Hit between idea need table. Step party born end teacher world game.
+\begin{figure*}
+	\includegraphics[height=2in, width=3in]{../../images/563.png}
+	\caption{Across could fund always color employee.}
+\end{figure*}
+\subsection{Get.}
+Carry good compare up store decision. Top write out it wall choose. Plan especially rock character be imagine. Party carry above go character. Support others bring always interview us forward force. Its however benefit town. Support will social leave ground. Standard college century somebody why. Son board right together. Write president himself TV fire father. Side dinner drop share. Medical middle focus explain leg traditional police. Instead follow house Democrat western low. And subject base there large. Employee job wrong fight. Explain manager opportunity as service single. Sometimes box at great trouble system shake amount. Rise thus manage. Hundred nor many player choose threat. Just show wall somebody service. Four chance these reach movement.

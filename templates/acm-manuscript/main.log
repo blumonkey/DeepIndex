@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.25)  20 FEB 2018 00:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.25)  23 MAR 2018 23:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1085,67 +1085,59 @@ Package hyperref Warning: Option `pdfdisplaydoctitle' has already been used,
 
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 6.0pt on input line 178.
-[1.1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./body.tex [2.2]
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 7.3pt on input line 76.
-LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/it' will be
-(Font)              scaled to size 9.0pt on input line 89.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 9.0pt on input line 97.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 9.0pt on input line 113.
-
-[3.3]
-Package epstopdf Info: Source file: <mouse.eps>
-(epstopdf)                    date: 2018-02-07 11:20:09
-(epstopdf)                    size: 5189 bytes
-(epstopdf)             Output file: <mouse-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-02-19 23:11:22
-(epstopdf)                    size: 3124 bytes
-(epstopdf)             Command: <repstopdf --outfile=mouse-eps-converted-to.pdf
- mouse.eps>
-(epstopdf)             \includegraphics on input line 188.
-Package epstopdf Info: Output file is already uptodate.
- <mouse-eps-converted-to.pdf, id=193, 151.56625pt x 134.5025pt>
-File: mouse-eps-converted-to.pdf Graphic file (type pdf)
-
-<use mouse-eps-converted-to.pdf>
-Package pdftex.def Info: mouse-eps-converted-to.pdf used on input line 188.
-(pdftex.def)             Requested size: 151.56587pt x 134.50215pt.
+[1.1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./body.tex
+<../../images/751.png, id=93, 533.995pt x 401.5pt>
+File: ../../images/751.png Graphic file (type png)
+ <use ../../images/751.png>
+Package pdftex.def Info: ../../images/751.png used on input line 6.
+(pdftex.def)             Requested size: 216.81271pt x 144.53989pt.
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 189.
- [4.4 <./mouse-eps-converted-to.pdf>]
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
-(Font)              scaled to size 9.0pt on input line 211.
+(Font)              scaled to size 8.0pt on input line 7.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
+(Font)              scaled to size 9.0pt on input line 16.
+
+[2.2 <../../images/751.png>]
+<../../images/77.png, id=102, 572.1375pt x 401.5pt>
+File: ../../images/77.png Graphic file (type png)
+ <use ../../images/77.png>
+Package pdftex.def Info: ../../images/77.png used on input line 33.
+(pdftex.def)             Requested size: 216.81212pt x 144.53989pt.
+
+<../../images/788.png, id=103, 533.995pt x 401.5pt>
+File: ../../images/788.png Graphic file (type png)
+ <use ../../images/788.png>
+Package pdftex.def Info: ../../images/788.png used on input line 37.
+(pdftex.def)             Requested size: 216.81271pt x 144.53989pt.
+
+<../../images/87.png, id=104, 504.88625pt x 401.5pt>
+File: ../../images/87.png Graphic file (type png)
+ <use ../../images/87.png>
+Package pdftex.def Info: ../../images/87.png used on input line 41.
+(pdftex.def)             Requested size: 216.8118pt x 144.53989pt.
+
+<../../images/623.png, id=105, 401.5pt x 401.5pt>
+File: ../../images/623.png Graphic file (type png)
+ <use ../../images/623.png>
+Package pdftex.def Info: ../../images/623.png used on input line 45.
+(pdftex.def)             Requested size: 216.81288pt x 144.53989pt.
+
+[3.3] [4.4 <../../images/77.png> <../../images/788.png> <../../images/87.png>]
+[5.5 <../../images/623.png>] [6.6] [7.7]) (./main.bbl
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 7.0pt on input line 263.
- [5.5]
-Excluding 'printonly' comment. Including 'screenonly' comment.
-\openout4 = `comment.cut'.
-
-
-Straight input of comment.cut. (./comment.cut) Processing 'acks' comment.
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [6.6]
-\openout4 = `comment.cut'.
-
-
-Comment 'acks' writing to comment.cut. Straight input of comment.cut.
-(./comment.cut)) (./main.bbl
+(Font)              scaled to size 7.0pt on input line 60.
 LaTeX Info: Redefining \tempurl on input line 65.
 LaTeX Info: Redefining \tempurl on input line 118.
 LaTeX Info: Redefining \tempurl on input line 178.
+
+Underfull \vbox (badness 5260) has occurred while \output is active []
+
+ [8.8]
 LaTeX Info: Redefining \tempurl on input line 220.
 LaTeX Info: Redefining \tempurl on input line 235.
 LaTeX Info: Redefining \tempurl on input line 249.
 LaTeX Info: Redefining \tempurl on input line 291.
 LaTeX Info: Redefining \tempurl on input line 348.
 LaTeX Info: Redefining \tempurl on input line 365.
-
-Underfull \vbox (badness 5533) has occurred while \output is active []
-
- [7.7]
 LaTeX Info: Redefining \tempurl on input line 400.
 LaTeX Info: Redefining \tempurl on input line 429.
 LaTeX Info: Redefining \tempurl on input line 442.
@@ -1156,7 +1148,7 @@ LaTeX Info: Redefining \tempurl on input line 553.
 LaTeX Info: Redefining \tempurl on input line 565.
 LaTeX Info: Redefining \tempurl on input line 591.
 )
-[8.8]
+[9.9]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 187.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 187.
  (./main.aux)
@@ -1292,55 +1284,42 @@ xBiolinumT-TLF.
 TS1LinuxLibertineT-TLF.fd    2012/11/26 (autoinst) Font definitions for TS1/Lin
 uxLibertineT-TLF.
     body.tex
-mouse-eps-converted-to.pdf    Graphic file (type pdf)
- comment.cut
- comment.cut
+../../images/751.png
+../../images/77.png
+../../images/788.png
+../../images/87.png
+../../images/623.png
     main.bbl
  ***********
 
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 187.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: E55527A6661F2D6690B8E6E1B3E8E4E6;2597.
+(rerunfilecheck)             Checksum: 76A300C2591652800D28CC7656CE8AAE;1980.
  ) 
 Here is how much of TeX's memory you used:
- 19124 strings out of 494953
- 290229 string characters out of 6180976
- 411180 words of memory out of 5000000
- 21430 multiletter control sequences out of 15000+600000
- 213844 words of font info for 383 fonts, out of 8000000 for 9000
+ 19009 strings out of 494953
+ 288788 string characters out of 6180976
+ 411639 words of memory out of 5000000
+ 21432 multiletter control sequences out of 15000+600000
+ 159557 words of font info for 298 fonts, out of 8000000 for 9000
  175 hyphenation exceptions out of 8191
- 60i,17n,94p,820b,618s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exi
-st, replaced by a fixed one
-
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_ncsllp.enc}{/usr/
-share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_25tcsq.enc}{/usr/share/
-texlive/texmf-dist/fonts/enc/dvips/newtx/libertinealt.enc}{/usr/share/texlive/t
-exmf-dist/fonts/enc/dvips/libertine/lbtn_c7kyj5.enc}{/usr/share/texlive/texmf-d
-ist/fonts/enc/dvips/base/8r.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/
-libertine/lbtn_7grukw.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libert
-ine/lbtn_nh77jq.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lb
-tn_naooyc.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_afu
-sau.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_mmutss.en
-c}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc}</us
-r/share/texlive/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/libertine/LinBiolinumTI.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/newtx/fxlri-5letters.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/newtx/fxlri-7letters.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/newtx/rntxmi.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/tx
-fonts/txsy.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsya.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/newtx/zxlr.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/newtx/zxlri.pfb>
-Output written on main.pdf (8 pages, 639249 bytes).
+ 60i,15n,94p,1043b,588s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{/us
+r/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{/usr/shar
+e/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}{/usr/share/texl
+ive/texmf-dist/fonts/enc/dvips/libertine/lbtn_afusau.enc}{/usr/share/texlive/te
+xmf-dist/fonts/enc/dvips/libertine/lbtn_25tcsq.enc}{/usr/share/texlive/texmf-di
+st/fonts/enc/dvips/libertine/lbtn_mmutss.enc}{/usr/share/texlive/texmf-dist/fon
+ts/enc/dvips/libertine/lbtn_76gpa5.enc}</usr/share/texlive/texmf-dist/fonts/typ
+e1/public/libertine/LinBiolinumT.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/libertine/LinBiolinumTB.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/libertine/LinLibertineT.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/libertine/LinLibertineTB.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/libertine/LinLibertineTI.pfb>
+Output written on main.pdf (9 pages, 463294 bytes).
 PDF statistics:
- 475 PDF objects out of 1000 (max. 8388607)
- 418 compressed objects within 5 object streams
- 88 named destinations out of 1000 (max. 500000)
- 60054 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 269 PDF objects out of 1000 (max. 8388607)
+ 228 compressed objects within 3 object streams
+ 78 named destinations out of 1000 (max. 500000)
+ 44210 words of extra memory for PDF output out of 51595 (max. 10000000)
 

@@ -11,7 +11,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/acm-sigchi/main.pdf" afterPath="$PROJECT_DIR$/templates/acm-sigchi/main.pdf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BBGenerator.py" afterPath="$PROJECT_DIR$/BBGenerator.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LaTeXGenerator.py" afterPath="$PROJECT_DIR$/LaTeXGenerator.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/acm-authorsdraft/main.aux" afterPath="$PROJECT_DIR$/templates/acm-authorsdraft/main.aux" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/acm-authorsdraft/main.log" afterPath="$PROJECT_DIR$/templates/acm-authorsdraft/main.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/acm-authorsdraft/main.tex" afterPath="$PROJECT_DIR$/templates/acm-authorsdraft/main.tex" />
@@ -43,10 +42,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LaTeXGenerator.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LaTeXGenerator.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LaTeXGenerator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-626">
+            <state relative-caret-position="-4360">
               <caret line="551" column="8" lean-forward="false" selection-start-line="551" selection-start-column="8" selection-end-line="551" selection-end-column="8" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
@@ -58,10 +57,23 @@
       <file leaf-file-name="BBGenerator.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BBGenerator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1804">
-              <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+            <state relative-caret-position="536">
+              <caret line="176" column="14" lean-forward="true" selection-start-line="175" selection-start-column="4" selection-end-line="179" selection-end-column="15" />
               <folding>
                 <element signature="e#43#80#0" expanded="true" />
+                <marker date="1522371628974" expanded="true" signature="3818:4244" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pipeline.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pipeline.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="21" column="49" lean-forward="true" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
+              <folding>
+                <element signature="e#0#17#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -91,6 +103,8 @@
       <find>base</find>
       <find>open</find>
       <find>abstr</find>
+      <find>log_file</find>
+      <find>Image</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -99,16 +113,18 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/BBGenerator.py" />
         <option value="$PROJECT_DIR$/LaTeXGenerator.py" />
+        <option value="$PROJECT_DIR$/BBGenerator.py" />
+        <option value="$USER_HOME$/Downloads/object_detection_tutorial.py" />
+        <option value="$PROJECT_DIR$/pipeline.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="65" />
     <option name="y" value="-4" />
-    <option name="width" value="1855" />
-    <option name="height" value="1084" />
+    <option name="width" value="737" />
+    <option name="height" value="612" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -130,7 +146,7 @@
     </entry>
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -143,24 +159,11 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Project" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="fileTemplates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pipeline.py" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -276,6 +279,100 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/LaTeXGenerator.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9756">
+          <caret line="551" column="8" lean-forward="false" selection-start-line="551" selection-start-column="8" selection-end-line="551" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BBGenerator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2844">
+          <caret line="173" column="0" lean-forward="false" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
+          <folding>
+            <element signature="e#43#80#0" expanded="true" />
+            <marker date="1522371628974" expanded="true" signature="3818:4244" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/object_detection_tutorial.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1800">
+          <caret line="111" column="59" lean-forward="false" selection-start-line="111" selection-start-column="54" selection-end-line="111" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#18#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LaTeXGenerator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9918">
+          <caret line="551" column="8" lean-forward="false" selection-start-line="551" selection-start-column="8" selection-end-line="551" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BBGenerator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2826">
+          <caret line="172" column="0" lean-forward="false" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
+          <folding>
+            <element signature="e#43#80#0" expanded="true" />
+            <marker date="1522371628974" expanded="true" signature="3818:4244" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LaTeXGenerator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9918">
+          <caret line="551" column="8" lean-forward="false" selection-start-line="551" selection-start-column="8" selection-end-line="551" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BBGenerator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2142">
+          <caret line="134" column="113" lean-forward="false" selection-start-line="134" selection-start-column="113" selection-end-line="134" selection-end-column="113" />
+          <folding>
+            <element signature="e#43#80#0" expanded="true" />
+            <marker date="1522371628974" expanded="true" signature="3818:4244" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LaTeXGenerator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BBGenerator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+          <folding>
+            <element signature="e#43#80#0" expanded="true" />
+            <marker date="1522371628974" expanded="true" signature="3818:4244" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LaTeXGenerator.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6264">
           <caret line="357" column="53" lean-forward="false" selection-start-line="357" selection-start-column="23" selection-end-line="357" selection-end-column="53" />
           <folding>
@@ -290,18 +387,12 @@
           <caret line="94" column="52" lean-forward="false" selection-start-line="94" selection-start-column="52" selection-end-line="94" selection-end-column="52" />
           <folding>
             <element signature="e#43#80#0" expanded="true" />
+            <marker date="1522371628974" expanded="true" signature="3818:4244" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/meta-tmpVKNVPu.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/meta-tmpVKNVPu.json" />
     <entry file="file://$PROJECT_DIR$/LaTeXGenerator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -346,31 +437,45 @@
     <entry file="file://$PROJECT_DIR$/meta-tmpli_CvM.tex.json" />
     <entry file="file://$PROJECT_DIR$/meta-tmpEaQEuY.tex.json" />
     <entry file="file://$PROJECT_DIR$/log-temppdf.txt" />
-    <entry file="file://$PROJECT_DIR$/meta-tmpVKNVPu.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/meta-tmpVKNVPu.json" />
     <entry file="file://$PROJECT_DIR$/log-tmpVKNVPu.txt" />
-    <entry file="file://$PROJECT_DIR$/BBGenerator.py">
+    <entry file="file://$USER_HOME$/Downloads/object_detection_tutorial.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1804">
-          <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+        <state relative-caret-position="1224">
+          <caret line="71" column="0" lean-forward="true" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
           <folding>
-            <element signature="e#43#80#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LaTeXGenerator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-626">
+        <state relative-caret-position="-4360">
           <caret line="551" column="8" lean-forward="false" selection-start-line="551" selection-start-column="8" selection-end-line="551" selection-end-column="8" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BBGenerator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="536">
+          <caret line="176" column="14" lean-forward="true" selection-start-line="175" selection-start-column="4" selection-end-line="179" selection-end-column="15" />
+          <folding>
+            <element signature="e#43#80#0" expanded="true" />
+            <marker date="1522371628974" expanded="true" signature="3818:4244" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pipeline.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="21" column="49" lean-forward="true" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
           </folding>
         </state>
       </provider>

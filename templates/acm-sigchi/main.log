@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.25)  20 FEB 2018 00:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.25)  24 MAR 2018 11:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1006,14 +1006,6 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `LinuxLibertineT-TLF' (encoding: TS1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-
-<sampleteaser.pdf, id=80, 2055.68pt x 511.9125pt>
-File: sampleteaser.pdf Graphic file (type pdf)
- <use sampleteaser.pdf>
-Package pdftex.def Info: sampleteaser.pdf used on input line 167.
-(pdftex.def)             Requested size: 506.295pt x 126.0797pt.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 9.0pt on input line 167.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 6.2pt on input line 167.
 LaTeX Font Info:    Font shape `TS1/LinuxLibertineT-TLF/m/n' will be
@@ -1047,6 +1039,8 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
 (Font)              scaled to size 10.0pt on input line 167.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
 (Font)              scaled to size 9.0pt on input line 167.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
+(Font)              scaled to size 9.0pt on input line 167.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
 (Font)              scaled to size 9.0pt on input line 167.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
@@ -1065,134 +1059,57 @@ Package hyperref Warning: Option `pdflang' has already been used,
 Package hyperref Warning: Option `pdfdisplaydoctitle' has already been used,
 (hyperref)                setting the option has no effect on input line 167.
 
-(./body.tex
-Underfull \vbox (badness 3919) has occurred while \output is active []
+(./body.tex <../../images/751.png, id=79, 533.995pt x 401.5pt>
+File: ../../images/751.png Graphic file (type png)
 
+<use ../../images/751.png>
+Package pdftex.def Info: ../../images/751.png used on input line 6.
+(pdftex.def)             Requested size: 216.81271pt x 144.53989pt.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 7.0pt on input line 12.
+(Font)              scaled to size 7.0pt on input line 26.
  [1.1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
- <./sampleteaser.pdf>]
-Package microtype Info: Character `textendash ' is missing
-(microtype)             in font `T1/zi4/m/n/10'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textemdash ' is missing
-(microtype)             in font `T1/zi4/m/n/10'.
-(microtype)             Ignoring protrusion settings for this character.
-LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/bx/it' in size <10> not a
-vailable
-(Font)              Font shape `T1/LinuxBiolinumT-TLF/b/it' tried instead on in
-put line 31.
-LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/b/it' will be
-(Font)              scaled to size 10.0pt on input line 31.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 7.3pt on input line 49.
-LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/it' will be
-(Font)              scaled to size 10.0pt on input line 58.
+] <../../images/77.png, id=97, 572.1375pt x 401.5pt>
+File: ../../images/77.png Graphic file (type png)
+
+<use ../../images/77.png>
+Package pdftex.def Info: ../../images/77.png used on input line 33.
+(pdftex.def)             Requested size: 216.81212pt x 144.53989pt.
+ <../../images/788.png, id=98, 533.995pt x 401.5pt>
+File: ../../images/788.png Graphic file (type png)
+
+<use ../../images/788.png>
+Package pdftex.def Info: ../../images/788.png used on input line 37.
+(pdftex.def)             Requested size: 216.81271pt x 144.53989pt.
+ <../../images/87.png, id=99, 504.88625pt x 401.5pt>
+File: ../../images/87.png Graphic file (type png)
+
+<use ../../images/87.png>
+Package pdftex.def Info: ../../images/87.png used on input line 41.
+(pdftex.def)             Requested size: 216.8118pt x 144.53989pt.
+ <../../images/623.png, id=100, 401.5pt x 401.5pt>
+File: ../../images/623.png Graphic file (type png)
+
+<use ../../images/623.png>
+Package pdftex.def Info: ../../images/623.png used on input line 45.
+(pdftex.def)             Requested size: 216.81288pt x 144.53989pt.
+
+Underfull \vbox (badness 3579) has occurred while \output is active []
+
 LaTeX Font Info:    Font shape `T1/LinuxBiolinumT-TLF/m/n' will be
-(Font)              scaled to size 7.0pt on input line 121.
- [2.2]
-Package epstopdf Info: Source file: <fly.eps>
-(epstopdf)                    date: 2018-02-07 11:20:09
-(epstopdf)                    size: 155104 bytes
-(epstopdf)             Output file: <fly-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-02-19 23:12:12
-(epstopdf)                    size: 4243 bytes
-(epstopdf)             Command: <repstopdf --outfile=fly-eps-converted-to.pdf f
-ly.eps>
-(epstopdf)             \includegraphics on input line 235.
-Package epstopdf Info: Output file is already uptodate.
+(Font)              scaled to size 7.0pt on input line 68.
+ [2.2 <../../images/751.png>] [3.3 <../../images/77.png>]
+Underfull \vbox (badness 3128) has occurred while \output is active []
 
-<fly-eps-converted-to.pdf, id=184, 34.1275pt x 32.12pt>
-File: fly-eps-converted-to.pdf Graphic file (type pdf)
-
-<use fly-eps-converted-to.pdf>
-Package pdftex.def Info: fly-eps-converted-to.pdf used on input line 235.
-(pdftex.def)             Requested size: 34.1274pt x 32.1199pt.
-Package epstopdf Info: Source file: <fly.eps>
-(epstopdf)                    date: 2018-02-07 11:20:09
-(epstopdf)                    size: 155104 bytes
-(epstopdf)             Output file: <fly-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-02-19 23:12:12
-(epstopdf)                    size: 4243 bytes
-(epstopdf)             Command: <repstopdf --outfile=fly-eps-converted-to.pdf f
-ly.eps>
-(epstopdf)             \includegraphics on input line 240.
-Package epstopdf Info: Output file is already uptodate.
-File: fly-eps-converted-to.pdf Graphic file (type pdf)
- <use fly-eps-converted-to.pdf>
-Package pdftex.def Info: fly-eps-converted-to.pdf used on input line 240.
-(pdftex.def)             Requested size: 72.27492pt x 72.27565pt.
-LaTeX Font Info:    Font shape `T1/zi4/bx/n' in size <9> not available
-(Font)              Font shape `T1/zi4/b/n' tried instead on input line 242.
-Package microtype Info: Character `textendash ' is missing
-(microtype)             in font `T1/zi4/b/n/9'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `textemdash ' is missing
-(microtype)             in font `T1/zi4/b/n/9'.
-(microtype)             Ignoring protrusion settings for this character.
-Package epstopdf Info: Source file: <flies.eps>
-(epstopdf)                    date: 2018-02-07 11:20:09
-(epstopdf)                    size: 343737 bytes
-(epstopdf)             Output file: <flies-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-02-19 23:12:13
-(epstopdf)                    size: 9687 bytes
-(epstopdf)             Command: <repstopdf --outfile=flies-eps-converted-to.pdf
- flies.eps>
-(epstopdf)             \includegraphics on input line 253.
-Package epstopdf Info: Output file is already uptodate.
-
-<flies-eps-converted-to.pdf, id=185, 307.1475pt x 114.4275pt>
-File: flies-eps-converted-to.pdf Graphic file (type pdf)
-
-<use flies-eps-converted-to.pdf>
-Package pdftex.def Info: flies-eps-converted-to.pdf used on input line 253.
-(pdftex.def)             Requested size: 307.14674pt x 114.42722pt.
-Package epstopdf Info: Source file: <rosette.eps>
-(epstopdf)                    date: 2018-02-07 11:20:09
-(epstopdf)                    size: 3502 bytes
-(epstopdf)             Output file: <rosette-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-02-19 23:12:13
-(epstopdf)                    size: 2931 bytes
-(epstopdf)             Command: <repstopdf --outfile=rosette-eps-converted-to.p
-df rosette.eps>
-(epstopdf)             \includegraphics on input line 260.
-Package epstopdf Info: Output file is already uptodate.
-
-<rosette-eps-converted-to.pdf, id=186, 364.59212pt x 364.59212pt>
-File: rosette-eps-converted-to.pdf Graphic file (type pdf)
-
-<use rosette-eps-converted-to.pdf>
-Package pdftex.def Info: rosette-eps-converted-to.pdf used on input line 260.
-(pdftex.def)             Requested size: 72.26622pt x 72.26622pt.
- [3.3 <./fly-eps-converted-to.pdf>]
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
-(Font)              scaled to size 10.0pt on input line 274.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sl' in size <10> not a
-vailable
-(Font)              Font shape `T1/LinuxLibertineT-TLF/m/it' tried instead on i
-nput line 295.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 10.0pt on input line 295.
-
-Overfull \hbox (17.51395pt too wide) detected at line 313
-\OML/nxlmi/m/it/10 l \U/ntxmia/m/it/10 = [] \OML/nxlmi/m/it/10 f\U/ntxmia/m/it/
-10 {\OML/nxlmi/m/it/10 x\U/ntxmia/m/it/10 | = [] [] = [] \OML/nxlmi/m/it/10 g\U
-/ntxmia/m/it/10 {\OML/nxlmi/m/it/10 x\U/ntxmia/m/it/10 | \OMS/ntxsy/m/n/10 ^^A 
-[] [] \U/ntxmia/m/it/10 = \OT1/LinuxLibertineT-TLF/m/n/10 0 \OMS/ntxsy/m/n/10 ^
-^A \OML/nxlmi/m/it/10 L \U/ntxmia/m/it/10 = \OT1/LinuxLibertineT-TLF/m/n/10 0\O
-ML/nxlmi/m/it/10 ;
- []
-
-[4.4 <./flies-eps-converted-to.pdf> <./rosette-eps-converted-to.pdf>]
-Processing 'acks' comment.
-\openout4 = `comment.cut'.
-
- Comment 'acks' writing to comment.cut.
-Straight input of comment.cut. (./comment.cut)) (./main.bbl
+ [4.4 <../../images/788.png> <../../images/87.png>]) [5.5 <../../images/623.png
+>]
+(./main.bbl
 LaTeX Info: Redefining \tempurl on input line 65.
 LaTeX Info: Redefining \tempurl on input line 91.
 LaTeX Info: Redefining \tempurl on input line 117.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 LaTeX Info: Redefining \tempurl on input line 176.
 LaTeX Info: Redefining \tempurl on input line 196.
 LaTeX Info: Redefining \tempurl on input line 211.
@@ -1203,70 +1120,55 @@ LaTeX Info: Redefining \tempurl on input line 277.
 LaTeX Info: Redefining \tempurl on input line 292.
 LaTeX Info: Redefining \tempurl on input line 339.
 LaTeX Info: Redefining \tempurl on input line 356.
- [5.5]
 LaTeX Info: Redefining \tempurl on input line 401.
 LaTeX Info: Redefining \tempurl on input line 415.
 LaTeX Info: Redefining \tempurl on input line 428.
+ [6.6]
 LaTeX Info: Redefining \tempurl on input line 441.
 LaTeX Info: Redefining \tempurl on input line 522.
 LaTeX Info: Redefining \tempurl on input line 537.
 LaTeX Info: Redefining \tempurl on input line 549.
 LaTeX Info: Redefining \tempurl on input line 561.
 LaTeX Info: Redefining \tempurl on input line 575.
-) [6.6
+)
+[7.7
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 174.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 174.
-
-(./main.aux)
+ (./main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 174.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 174.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 82D3DAC21CBCFB44A9A93C4B63A819CA;2377.
+(rerunfilecheck)             Checksum: 0A655B694A671FD8160AB0299DF0C07B;1718.
  ) 
 Here is how much of TeX's memory you used:
- 18288 strings out of 494953
- 278035 string characters out of 6180976
- 388911 words of memory out of 5000000
- 20575 multiletter control sequences out of 15000+600000
- 234020 words of font info for 428 fonts, out of 8000000 for 9000
+ 18168 strings out of 494953
+ 276330 string characters out of 6180976
+ 390022 words of memory out of 5000000
+ 20561 multiletter control sequences out of 15000+600000
+ 191460 words of font info for 363 fonts, out of 8000000 for 9000
  175 hyphenation exceptions out of 8191
- 60i,17n,94p,795b,636s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texliv
-e/texmf-dist/fonts/enc/dvips/libertine/lbtn_ncsllp.enc}{/usr/share/texlive/texm
-f-dist/fonts/enc/dvips/inconsolata/i4-t1-4.enc}{/usr/share/texlive/texmf-dist/f
-onts/enc/dvips/newtx/libertinealt.enc}{/usr/share/texlive/texmf-dist/fonts/enc/
-dvips/libertine/lbtn_c7kyj5.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/
-libertine/lbtn_25tcsq.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libert
-ine/lbtn_7grukw.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lb
-tn_naooyc.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_7f4
-ce4.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_nh77jq.en
-c}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_afusau.enc}{/us
-r/share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_mmutss.enc}{/usr/shar
-e/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc}</usr/share/texl
-ive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4b.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/libertine/LinBiolinumT.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/libertine/LinBiolinumTB.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/libertine/LinBiolinumTBO.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/libertine/LinBiolinumTI.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/newtx/fxlri-7letters.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/txfonts/rtxmi.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/txfonts/rtxr.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/newtx/txex-bar.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-txfonts/txex.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsy
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/txfonts/txsya.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/txfonts/txsyc.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/newtx/zxlr.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/newtx/zxlri.pfb>
-Output written on main.pdf (6 pages, 1098427 bytes).
+ 60i,16n,94p,1043b,645s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-4.enc}{/usr/
+share/texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{/usr/share/
+texlive/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}{/usr/share/texliv
+e/texmf-dist/fonts/enc/dvips/libertine/lbtn_7f4ce4.enc}{/usr/share/texlive/texm
+f-dist/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{/usr/share/texlive/texmf-dist
+/fonts/enc/dvips/libertine/lbtn_afusau.enc}{/usr/share/texlive/texmf-dist/fonts
+/enc/dvips/libertine/lbtn_25tcsq.enc}{/usr/share/texlive/texmf-dist/fonts/enc/d
+vips/libertine/lbtn_mmutss.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/l
+ibertine/lbtn_76gpa5.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/inco
+nsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+libertine/LinBiolinumT.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/li
+bertine/LinBiolinumTB.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/lib
+ertine/LinLibertineT.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libe
+rtine/LinLibertineTB.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/libe
+rtine/LinLibertineTI.pfb>
+Output written on main.pdf (7 pages, 490977 bytes).
 PDF statistics:
- 443 PDF objects out of 1000 (max. 8388607)
- 372 compressed objects within 4 object streams
- 93 named destinations out of 1000 (max. 500000)
- 62133 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 280 PDF objects out of 1000 (max. 8388607)
+ 238 compressed objects within 3 object streams
+ 73 named destinations out of 1000 (max. 500000)
+ 49842 words of extra memory for PDF output out of 51595 (max. 10000000)
 
