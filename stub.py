@@ -21,3 +21,4 @@ iter_size =1
 
 sess, tensor_dict,image_tensor = object_detection.initialize()
 print(object_detection.findIndex(image_np_expanded, 0.5, sess, tensor_dict,image_tensor))
+#output is list[classes], list[Bboxes] #BBox format ymin, xmin, height, width
