@@ -24,11 +24,8 @@ image - image file
 #score - threshold score for detection
 """
 def findIndex(image,score, sess, tensor_dict,image_tensor):
-    shape = image.shape
-    h =  shape[1]
-    w = shape[2]
-    #print(h)
-    #print(w)
+    (n,h,w,c) = image.shape
+    
     pred_Y = [] 
     pred_B = [] 
     output_dict = sess.run(tensor_dict,feed_dict={image_tensor: image})
@@ -46,13 +43,16 @@ def findIndex(image,score, sess, tensor_dict,image_tensor):
             pred_Y.append(detection_classes[0][i])
             bbox = detection_boxes[0][i]
             bbox[0] = bbox[0]*h
-            bbox[2] = bbox[2]*h
             bbox[1] = bbox[1]*w
+            bbox[2] = bbox[2]*h
             bbox[3] = bbox[3]*w
+            bbox[2] = bbox[2]-bbox[0]
+            bbox[3] = bbox[3]-bbox[1]
+            
             pred_B.append(bbox)    
 
     pred_Y = np.array(pred_Y).astype(np.uint8)
-    pred_B = np.array(pred_B).astype(np.uint8)
-    return pred_Y, pred_B       
+    pred_B = np.array(pred_B)
+    return pred_Y, pred_B        
     
 
