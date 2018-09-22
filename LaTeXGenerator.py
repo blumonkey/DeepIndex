@@ -265,6 +265,7 @@ class LaTeXGenerator(object):
         MAX_PARAGRAPH_COUNT = 3
         MAX_TABLE_COUNT = 3
         MAX_FIGURE_COUNT = 5
+        # isFirstSection = True
 
         while True:
             if not stack:
@@ -276,9 +277,16 @@ class LaTeXGenerator(object):
                     metadata['sections'] = list()
                 latex, title = self.section_tag(self.generate_section())
                 metadata['sections'].append(title)
-
+                
+                # if not isFirstSection:
+                #     if random.random() < 0.5:
+                #         document.append('\\newpage')
+                # else:
+                #     isFirstSection = False
+                
                 document.append(latex)
                 document.append(self.format_paragraph(self.generate_paragraph()))
+                
                 section_count += 1
                 subsection_count = 0
                 paragraph_count = 1
@@ -565,7 +573,7 @@ class LaTeXGenerator(object):
         filled_tex = template.render(ACM_INFO=acm_info, TITLE=title, AUTHORS=authors,
                                      SHORT_AUTHORS_COMMAND=short_authors, ABSTRACT=abstract, KEY_WORDS=keywords,
                                      BODY=body, NO_CITES=no_cites)
-        print(filled_tex)
+        # print(filled_tex)
 
         fname = "./templates/acm-authorsdraft/main-%s.tex" % metadata['body']
         with open(fname, "w") as tex_file:
@@ -594,7 +602,7 @@ class LaTeXGenerator(object):
         filled_tex = template.render(ACM_INFO=acm_info, TITLE=title, AUTHORS=authors,
                                      SHORT_AUTHORS_COMMAND=short_authors, ABSTRACT=abstract, KEY_WORDS=keywords,
                                      BODY=body, NO_CITES=no_cites)
-        print(filled_tex)
+        # print(filled_tex)
 
         fname = "./templates/acm-large/main-%s.tex" % metadata['body']
         with open(fname, "w") as tex_file:
@@ -623,7 +631,7 @@ class LaTeXGenerator(object):
         filled_tex = template.render(ACM_INFO=acm_info, TITLE=title, AUTHORS=authors,
                                      SHORT_AUTHORS_COMMAND=short_authors, ABSTRACT=abstract, KEY_WORDS=keywords,
                                      BODY=body, NO_CITES=no_cites)
-        print(filled_tex)
+        # print(filled_tex)
 
         fname = "./templates/acm-manuscript/main-%s.tex" % metadata['body']
         with open(fname, "w") as tex_file:
@@ -652,7 +660,7 @@ class LaTeXGenerator(object):
         filled_tex = template.render(ACM_INFO=acm_info, TITLE=title, AUTHORS=authors,
                                      SHORT_AUTHORS_COMMAND=short_authors, ABSTRACT=abstract, KEY_WORDS=keywords,
                                      BODY=body, NO_CITES=no_cites)
-        print(filled_tex)
+        # print(filled_tex)
 
         fname = "./templates/acm-sigchi/main-%s.tex" % metadata['body']
         with open(fname, "w") as tex_file:
@@ -681,7 +689,7 @@ class LaTeXGenerator(object):
         filled_tex = template.render(ACM_INFO=acm_info, TITLE=title, AUTHORS=authors,
                                      SHORT_AUTHORS_COMMAND=short_authors, ABSTRACT=abstract, KEY_WORDS=keywords,
                                      BODY=body, NO_CITES=no_cites)
-        print(filled_tex)
+        # print(filled_tex)
 
         fname = "./templates/acm-sigchi-a/main-%s.tex" % metadata['body']
         with open(fname, "w") as tex_file:
@@ -710,7 +718,7 @@ class LaTeXGenerator(object):
         filled_tex = template.render(ACM_INFO=acm_info, TITLE=title, AUTHORS=authors,
                                      SHORT_AUTHORS_COMMAND=short_authors, ABSTRACT=abstract, KEY_WORDS=keywords,
                                      BODY=body, NO_CITES=no_cites)
-        print(filled_tex)
+        # print(filled_tex)
 
         fname = "./templates/acm-sigconf/main-%s.tex" % metadata['body']
         with open(fname, "w") as tex_file:
@@ -739,7 +747,7 @@ class LaTeXGenerator(object):
         filled_tex = template.render(ACM_INFO=acm_info, TITLE=title, AUTHORS=authors,
                                      SHORT_AUTHORS_COMMAND=short_authors, ABSTRACT=abstract, KEY_WORDS=keywords,
                                      BODY=body, NO_CITES=no_cites)
-        print(filled_tex)
+        # print(filled_tex)
 
         fname = "./templates/acm-sigplan/main-%s.tex" % metadata['body']
         with open(fname, "w") as tex_file:
@@ -768,7 +776,7 @@ class LaTeXGenerator(object):
         filled_tex = template.render(ACM_INFO=acm_info, TITLE=title, AUTHORS=authors,
                                      SHORT_AUTHORS_COMMAND=short_authors, ABSTRACT=abstract, KEY_WORDS=keywords,
                                      BODY=body, NO_CITES=no_cites)
-        print(filled_tex)
+        # print(filled_tex)
 
         fname = "./templates/acm-small/main-%s.tex" % metadata['body']
         with open(fname, "w") as tex_file:
@@ -797,7 +805,7 @@ class LaTeXGenerator(object):
         filled_tex = template.render(ACM_INFO=acm_info, TITLE=title, AUTHORS=authors,
                                      SHORT_AUTHORS_COMMAND=short_authors, ABSTRACT=abstract, KEY_WORDS=keywords,
                                      BODY=body, NO_CITES=no_cites)
-        print(filled_tex)
+        # print(filled_tex)
 
         fname = "./templates/acm-tog/main-%s.tex" % metadata['body']
         with open(fname, "w") as tex_file:
@@ -821,7 +829,7 @@ if __name__ == '__main__':
     parser.add_argument('--num', type=int, help='Number of files to generate', default=100, nargs='?', const=100)
 
     args = parser.parse_args()
-    print(args)
+    # print(args)
     if args.format not in ACM_FORMATS and args.format != 'random':
         print('Not implemented')
         exit(1)

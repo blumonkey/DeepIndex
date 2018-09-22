@@ -49,11 +49,16 @@ def DeepIndex(filename):
         indices = utils.findIndex(image_np_expanded, 0.5, sess, tensor_dict,image_tensor)
         AllBbox.append(indices)
 
+    tot_pages = len(jpg_images)
     pageNum = 1
     imgNum = 1
+    if tot_pages >= 10:
+    	placeholder = '%02d'
+    else:
+    	placeholder = '%d'
     for ctype, bboxes in AllBbox:
         for o_class, bbox in zip(ctype, bboxes):
-            subprocess.call(['convert', temp_dir+'/'+base+'-'+str(pageNum)+'.jpg', '-crop',
+            subprocess.call(['convert', temp_dir+'/'+ base + ('-' + placeholder % pageNum)+'.jpg', '-crop',
                              '{:d}x{:d}+{:d}+{:d}'.format(int(math.ceil(bbox[3])), int(math.ceil(bbox[2])),
                                                           int(math.floor(bbox[1])), int(math.floor(bbox[0]))), os.path.join(temp_dir, 'out-%d.jpg' % imgNum)])
 
@@ -62,13 +67,16 @@ def DeepIndex(filename):
 
             img = types.Image(content=content)
             res = client.text_detection(image=img)
-            text = res.text_annotations[0].description
-            if o_class == 1:
-                o_class = 'TITLE'
-            else:
-                o_class = 'HEADING'
-            print('Class: {}, Text: {}'.format(o_class, text))
-
+            try:
+                text = res.text_annotations[0].description
+                if o_class == 1:
+                    o_class = 'TITLE'
+                else:
+                    o_class = 'SECTION'
+                print 'Pg: ' + str(pageNum)
+                print('Class: {}, Text: {}'.format(o_class, text))
+            except:
+                pass
             imgNum += 1
         pageNum += 1
 
@@ -82,5 +90,5 @@ if __name__ == '__main__':
     args = parser.parse_args()
     print(args)
 
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/home/blumonkey/Downloads/DeepIndex-0de2be869214.json"
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "/home/blumonkey/Acads/Winter 2018/617/DeepIndex-0de2be869214.json"
     DeepIndex(args.filename)
